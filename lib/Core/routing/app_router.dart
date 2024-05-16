@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recepo/Core/di/dependency_injection.dart';
 import 'package:recepo/Core/routing/routes.dart';
+import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
+import 'package:recepo/Features/login/presentation/login_view.dart';
 import 'package:recepo/Features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:recepo/Features/splash1/presentation/views/splash_view1.dart';
 
@@ -21,10 +25,13 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const OnboardingView(),
         );
-      // case Routes.loginView:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const LoginView(),
-      //   );
+      case Routes.loginView:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: const LoginView(),
+          ),
+        );
       // case Routes.signUpView:
       //   return MaterialPageRoute(
       //     builder: (_) => const SignUpView(),
