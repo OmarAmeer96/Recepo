@@ -4,6 +4,14 @@ import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/font_family_helper.dart';
 
 class Styles {
+  // Main Fonts
+  static TextStyle onboardingTitleFont = TextStyle(
+    fontSize: 24.5.sp,
+    color: Colors.black,
+    fontFamily: FontFamilyHelper.bold,
+  );
+
+  // Not Main Fonts
   static TextStyle font32BlueBold = TextStyle(
     fontSize: 32.sp,
     color: ColorsManager.mainBlue,
