@@ -5,13 +5,13 @@ import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/styles.dart';
 import 'package:recepo/Core/widgets/custom_main_button.dart';
 import 'package:recepo/Core/widgets/terms_and_conditions_text.dart';
-import 'package:recepo/Features/login/presentation/widgets/do_not_have_an_account_text.dart';
-import 'package:recepo/Features/login/presentation/widgets/login_bloc_listener.dart';
-import 'package:recepo/Features/login/presentation/widgets/login_email_and_password_widget.dart';
-import 'package:recepo/Features/login/presentation/widgets/login_view_welcome_texts.dart';
+import 'package:recepo/Features/signup/presentation/widgets/already_have_an_account_text.dart';
+import 'package:recepo/Features/signup/presentation/widgets/signup_bloc_listener.dart';
+import 'package:recepo/Features/signup/presentation/widgets/signup_email_and_password_widget.dart';
+import 'package:recepo/Features/signup/presentation/widgets/signup_view_welcome_texts.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +29,11 @@ class LoginView extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  const LoginViewWelcomeTexts(),
+                  const SignupViewWelcomeTexts(),
                   verticalSpace(32),
                   Column(
                     children: [
-                      const LoginEmailAndPasswordWidget(),
+                      const SignupEmailAndPasswordWidget(),
                       Align(
                         alignment: AlignmentDirectional.centerEnd,
                         child: GestureDetector(
@@ -51,16 +51,16 @@ class LoginView extends StatelessWidget {
                         tag: "registeringButton",
                         child: CustomMainButton(
                           onPressed: () {
-                            validateThenLogin(context);
+                            validateThenSignup(context);
                           },
-                          buttonText: 'Login',
+                          buttonText: 'Sign Up',
                         ),
                       ),
                       verticalSpace(18),
                       const TermsAndConditionsText(),
-                      verticalSpace(60),
-                      const DontHaveAccountText(),
-                      const LoginBlocListener(),
+                      verticalSpace(30),
+                      const AlreadyHaveAccountText(),
+                      const SignupBlocListener(),
                     ],
                   ),
                 ],
@@ -72,9 +72,9 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  void validateThenLogin(BuildContext context) {
-    // if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-    //   context.read<LoginCubit>().emitLoginState();
+  void validateThenSignup(BuildContext context) {
+    // if (context.read<SignupCubit>().formKey.currentState!.validate()) {
+    //   context.read<SignupCubit>().emitSignupState();
     // }
   }
 }

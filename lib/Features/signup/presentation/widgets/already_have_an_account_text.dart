@@ -5,8 +5,8 @@ import 'package:recepo/Core/helpers/extensions.dart';
 import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/theming/styles.dart';
 
-class DontHaveAccountText extends StatelessWidget {
-  const DontHaveAccountText({super.key});
+class AlreadyHaveAccountText extends StatelessWidget {
+  const AlreadyHaveAccountText({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,21 +15,21 @@ class DontHaveAccountText extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: 'Don\'t have an account?',
+            text: "Already have an account?",
             style: Styles.font13GreyBold.copyWith(
               color: Colors.black,
               fontSize: 13.sp,
             ),
           ),
           TextSpan(
-            text: ' Sign Up',
+            text: ' Sign in',
             style: Styles.font32BlueBold.copyWith(
               fontSize: 13.sp,
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                context.pushReplacementNamed(Routes.signUpView);
-                // Get.to(const SignUpView(), transition: Transition.fade);
+                context.pushReplacementNamed(Routes.loginView);
+                // Get.to(const LoginView(), transition: Transition.fade);
               },
           ),
         ],

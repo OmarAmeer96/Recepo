@@ -5,6 +5,8 @@ import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 import 'package:recepo/Features/login/presentation/login_view.dart';
 import 'package:recepo/Features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:recepo/Features/signup/logic/signup_cubit/signup_cubit.dart';
+import 'package:recepo/Features/signup/presentation/sign_up_view.dart';
 import 'package:recepo/Features/splash1/presentation/views/splash_view1.dart';
 
 class AppRouter {
@@ -32,10 +34,13 @@ class AppRouter {
             child: const LoginView(),
           ),
         );
-      // case Routes.signUpView:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const SignUpView(),
-      //   );
+      case Routes.signUpView:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SignupCubit>(),
+            child: const SignUpView(),
+          ),
+        );
       // case Routes.homeView:
       //   return MaterialPageRoute(
       //     builder: (_) => const HomeView(),

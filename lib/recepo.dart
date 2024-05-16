@@ -5,6 +5,8 @@ import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
 
 class Recepo extends StatelessWidget {
+  // final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
+
   final AppRouter appRouter;
   const Recepo({super.key, required this.appRouter});
 
@@ -18,6 +20,7 @@ class Recepo extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Appointment App',
         onGenerateRoute: appRouter.generateRoute,
+        // navigatorKey: navKey,
         theme: ThemeData(
           primaryColor: ColorsManager.mainBlue,
           scaffoldBackgroundColor: Colors.white,

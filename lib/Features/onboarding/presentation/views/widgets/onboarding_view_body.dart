@@ -16,7 +16,7 @@ class OnBoardingViewBody extends StatelessWidget {
       finishButtonText: 'Get Started',
       onFinish: () {
         context.pushReplacementNamed(Routes.loginView);
-        // Get.to(LoginView(), transition: Transition.fade);
+        // Get.to(const LoginView(), transition: Transition.fade);
       },
       finishButtonTextStyle: Styles.onboardingTitleFont.copyWith(
         color: Colors.white,
