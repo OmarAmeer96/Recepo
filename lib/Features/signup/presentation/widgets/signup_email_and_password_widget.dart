@@ -4,6 +4,7 @@ import 'package:recepo/Core/helpers/app_regex.dart';
 import 'package:recepo/Core/helpers/spacing.dart';
 import 'package:recepo/Core/theming/styles.dart';
 import 'package:recepo/Core/widgets/custom_main_text_form_field.dart';
+import 'package:recepo/Core/widgets/password_vlaidations.dart';
 import 'package:recepo/Features/signup/logic/signup_cubit/signup_cubit.dart';
 
 class SignupEmailAndPasswordWidget extends StatefulWidget {
@@ -64,22 +65,22 @@ class _SignupEmailAndPasswordWidgetState
                 return 'Please enter your your username';
               }
             },
-            prefixIcon: const Icon(Icons.email_outlined),
+            prefixIcon: const Icon(Icons.person_outline),
           ),
-          verticalSpace(18),
-          CustomMainTextFormField(
-            labelText: 'Email',
-            labelStyle: Styles.enabledTextFieldsLabelText,
-            isObscureText: false,
-            style: Styles.focusedTextFieldsLabelText,
-            controller: context.read<SignupCubit>().emailController,
-            validator: (value) {
-              if (value!.isEmpty || !AppRegex.isEmailValid(value)) {
-                return 'Please enter your email';
-              }
-            },
-            prefixIcon: const Icon(Icons.email_outlined),
-          ),
+          // verticalSpace(18),
+          // CustomMainTextFormField(
+          //   labelText: 'Email',
+          //   labelStyle: Styles.enabledTextFieldsLabelText,
+          //   isObscureText: false,
+          //   style: Styles.focusedTextFieldsLabelText,
+          //   controller: context.read<SignupCubit>().emailController,
+          //   validator: (value) {
+          //     if (value!.isEmpty || !AppRegex.isEmailValid(value)) {
+          //       return 'Please enter your email';
+          //     }
+          //   },
+          //   prefixIcon: const Icon(Icons.email_outlined),
+          // ),
           verticalSpace(18),
           CustomMainTextFormField(
             labelText: 'Password',
@@ -135,14 +136,14 @@ class _SignupEmailAndPasswordWidgetState
           ),
           verticalSpace(18),
           // To reduce the space, so I commented it out
-          // PasswordValidations(
-          //   hasLowerCase: hasLowerCase,
-          //   hasUpperCase: hasUpperCase,
-          //   hasSpecialCharacters: hasSpecialCharacters,
-          //   hasNumber: hasNumber,
-          //   hasMinLength: hasMinLength,
-          // ),
-          // verticalSpace(18),
+          PasswordValidations(
+            hasLowerCase: hasLowerCase,
+            hasUpperCase: hasUpperCase,
+            hasSpecialCharacters: hasSpecialCharacters,
+            hasNumber: hasNumber,
+            hasMinLength: hasMinLength,
+          ),
+          verticalSpace(18),
         ],
       ),
     );

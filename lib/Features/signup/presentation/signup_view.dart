@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recepo/Core/helpers/spacing.dart';
-import 'package:recepo/Core/theming/colors_manager.dart';
-import 'package:recepo/Core/theming/styles.dart';
 import 'package:recepo/Core/widgets/custom_main_button.dart';
 import 'package:recepo/Core/widgets/terms_and_conditions_text.dart';
 import 'package:recepo/Features/signup/presentation/widgets/already_have_an_account_text.dart';
@@ -34,19 +32,7 @@ class SignUpView extends StatelessWidget {
                   Column(
                     children: [
                       const SignupEmailAndPasswordWidget(),
-                      Align(
-                        alignment: AlignmentDirectional.centerEnd,
-                        child: GestureDetector(
-                          onTap: () {},
-                          child: Text(
-                            'Forgot password?',
-                            style: Styles.font13GreyBold.copyWith(
-                              color: ColorsManager.mainBlue,
-                            ),
-                          ),
-                        ),
-                      ),
-                      verticalSpace(42),
+                      verticalSpace(0),
                       Hero(
                         tag: "registeringButton",
                         child: CustomMainButton(

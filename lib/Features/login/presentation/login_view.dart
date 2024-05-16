@@ -34,6 +34,7 @@ class LoginView extends StatelessWidget {
                   Column(
                     children: [
                       const LoginEmailAndPasswordWidget(),
+                      verticalSpace(16),
                       Align(
                         alignment: AlignmentDirectional.centerEnd,
                         child: GestureDetector(
@@ -46,7 +47,7 @@ class LoginView extends StatelessWidget {
                           ),
                         ),
                       ),
-                      verticalSpace(42),
+                      verticalSpace(30),
                       Hero(
                         tag: "registeringButton",
                         child: CustomMainButton(

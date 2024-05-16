@@ -4,7 +4,6 @@ import 'package:recepo/Core/helpers/app_regex.dart';
 import 'package:recepo/Core/helpers/spacing.dart';
 import 'package:recepo/Core/theming/styles.dart';
 import 'package:recepo/Core/widgets/custom_main_text_form_field.dart';
-import 'package:recepo/Core/widgets/password_vlaidations.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 
 class LoginEmailAndPasswordWidget extends StatefulWidget {
@@ -90,14 +89,14 @@ class _LoginEmailAndPasswordWidgetState
               }
             },
           ),
-          verticalSpace(18),
-          PasswordValidations(
-            hasLowerCase: hasLowerCase,
-            hasUpperCase: hasUpperCase,
-            hasSpecialCharacters: hasSpecialCharacters,
-            hasNumber: hasNumber,
-            hasMinLength: hasMinLength,
-          ),
+          // verticalSpace(18),
+          // PasswordValidations(
+          //   hasLowerCase: hasLowerCase,
+          //   hasUpperCase: hasUpperCase,
+          //   hasSpecialCharacters: hasSpecialCharacters,
+          //   hasNumber: hasNumber,
+          //   hasMinLength: hasMinLength,
+          // ),
         ],
       ),
     );

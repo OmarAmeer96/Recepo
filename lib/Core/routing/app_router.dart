@@ -6,7 +6,7 @@ import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 import 'package:recepo/Features/login/presentation/login_view.dart';
 import 'package:recepo/Features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:recepo/Features/signup/logic/signup_cubit/signup_cubit.dart';
-import 'package:recepo/Features/signup/presentation/sign_up_view.dart';
+import 'package:recepo/Features/signup/presentation/signup_view.dart';
 import 'package:recepo/Features/splash1/presentation/views/splash_view1.dart';
 
 class AppRouter {
