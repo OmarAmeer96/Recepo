@@ -1,4 +1,8 @@
 class AssetsData {
+  // Logo
+  static const appLogoSvg = 'assets/svgs/logoSvg.svg';
+  static const appLogoPng = 'assets/images/logoPng.png';
+
   // Splash
   static const splashJson = 'assets/json/splashView1Json.json';
 
