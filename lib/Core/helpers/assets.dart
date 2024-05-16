@@ -1,7 +1,9 @@
 class AssetsData {
   // Logo
-  static const appLogoSvg = 'assets/svgs/logoSvg.svg';
-  static const appLogoPng = 'assets/images/logoPng.png';
+  static const appLogo1Svg = 'assets/svgs/logo1Svg.svg';
+  static const appLogo1Png = 'assets/images/logo1Png.png';
+  static const appLogo2Svg = 'assets/svgs/logo2Png.svg';
+  static const appLogo2Png = 'assets/images/logo2Png.png';
 
   // Splash
   static const splashJson = 'assets/json/splashView1Json.json';

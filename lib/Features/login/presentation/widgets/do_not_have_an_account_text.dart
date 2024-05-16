@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recepo/Core/helpers/extensions.dart';
 import 'package:recepo/Core/routing/routes.dart';
+import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/styles.dart';
 
 class DontHaveAccountText extends StatelessWidget {
@@ -25,6 +26,7 @@ class DontHaveAccountText extends StatelessWidget {
             text: ' Sign Up',
             style: Styles.font32BlueBold.copyWith(
               fontSize: 13.sp,
+              color: ColorsManager.primaryColor,
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {

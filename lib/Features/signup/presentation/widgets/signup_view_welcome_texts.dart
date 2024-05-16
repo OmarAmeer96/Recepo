@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recepo/Core/helpers/spacing.dart';
+import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/styles.dart';
 
 class SignupViewWelcomeTexts extends StatelessWidget {
@@ -19,6 +20,7 @@ class SignupViewWelcomeTexts extends StatelessWidget {
             style: Styles.font32BlueBold.copyWith(
               fontSize: 24.sp,
               letterSpacing: -0.48,
+              color: ColorsManager.primaryColor,
             ),
           ),
         ),
