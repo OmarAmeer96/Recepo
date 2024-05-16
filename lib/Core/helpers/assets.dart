@@ -5,6 +5,10 @@ class AssetsData {
   static const appLogo2Svg = 'assets/svgs/logo2Png.svg';
   static const appLogo2Png = 'assets/images/logo2Png.png';
 
+  // Loading Animation
+  static const loadingRightPart = 'assets/svgs/loadingRightPart.svg';
+  static const loadingLeftPart = 'assets/svgs/loadingLeftPart.svg';
+
   // Splash
   static const splashJson = 'assets/json/splashView1Json.json';
 
