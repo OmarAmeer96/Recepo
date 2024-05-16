@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:recepo/Core/helpers/extensions.dart';
 import 'package:recepo/Core/helpers/spacing.dart';
+import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/styles.dart';
 import 'package:recepo/Core/widgets/custom_main_button.dart';
 import 'package:recepo/Core/widgets/terms_and_conditions_text.dart';
+import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 import 'package:recepo/Features/login/presentation/widgets/do_not_have_an_account_text.dart';
 import 'package:recepo/Features/login/presentation/widgets/login_bloc_listener.dart';
 import 'package:recepo/Features/login/presentation/widgets/login_email_and_password_widget.dart';
@@ -74,8 +78,9 @@ class LoginView extends StatelessWidget {
   }
 
   void validateThenLogin(BuildContext context) {
-    // if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-    //   context.read<LoginCubit>().emitLoginState();
-    // }
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      // context.read<LoginCubit>().emitLoginState();
+      context.pushReplacementNamed(Routes.homeView);
+    }
   }
 }
