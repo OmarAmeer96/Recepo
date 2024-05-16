@@ -13,6 +13,7 @@ class Recepo extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
+      // GetMaterialApp
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Appointment App',

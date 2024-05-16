@@ -6,9 +6,15 @@ import 'package:recepo/Core/theming/font_family_helper.dart';
 class Styles {
   // Main Fonts
   static TextStyle onboardingTitleFont = TextStyle(
-    fontSize: 24.5.sp,
+    fontSize: 20.sp,
     color: Colors.black,
     fontFamily: FontFamilyHelper.bold,
+  );
+
+  static TextStyle onboardingContentFont = TextStyle(
+    fontSize: 13.sp,
+    color: ColorsManager.mainGrey,
+    fontFamily: FontFamilyHelper.regular,
   );
 
   // Not Main Fonts

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recepo/Core/helpers/assets.dart';
 import 'package:recepo/Core/helpers/extensions.dart';
 import 'package:recepo/Core/routing/routes.dart';
@@ -15,19 +16,23 @@ class OnBoardingViewBody extends StatelessWidget {
       finishButtonText: 'Get Started',
       onFinish: () {
         context.pushReplacementNamed(Routes.loginView);
+        // Get.to(LoginView(), transition: Transition.fade);
       },
+      finishButtonTextStyle: Styles.onboardingTitleFont.copyWith(
+        color: Colors.white,
+        fontSize: 15.sp,
+      ),
       finishButtonStyle: FinishButtonStyle(
         backgroundColor: ColorsManager.primaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
       ),
-      skipTextButton: const Text(
+      skipTextButton: Text(
         'Skip',
-        style: TextStyle(
-          fontSize: 16,
+        style: Styles.onboardingTitleFont.copyWith(
           color: ColorsManager.primaryColor,
-          fontWeight: FontWeight.w600,
+          fontSize: 13.sp,
         ),
       ),
       controllerColor: const Color(0xff1D272F),
@@ -68,23 +73,14 @@ class OnBoardingViewBody extends StatelessWidget {
                 'Find What You Need, Fast',
                 textAlign: TextAlign.center,
                 style: Styles.onboardingTitleFont,
-                // TextStyle(
-                //   color: Color(0xff191D31),
-                //   fontSize: 24.0,
-                //   fontWeight: FontWeight.w600,
-                // ),
               ),
               const SizedBox(
                 height: 15,
               ),
-              const Text(
+              Text(
                 "Search through thousands of products from your favorite brands and local stores.  Filter by category, price, and more to find exactly what you're looking for.",
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.black26,
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Styles.onboardingContentFont,
               ),
             ],
           ),
@@ -100,26 +96,18 @@ class OnBoardingViewBody extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.58,
               ),
-              const Text(
+              Text(
                 'Shop with Ease',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color(0xff191D31),
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Styles.onboardingTitleFont,
               ),
               const SizedBox(
                 height: 15,
               ),
-              const Text(
+              Text(
                 'Add items to your cart, checkout securely, and track your order every step of the way.  Enjoy hassle-free shopping with our user-friendly interface.',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.black26,
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Styles.onboardingContentFont,
               ),
             ],
           ),
@@ -135,14 +123,10 @@ class OnBoardingViewBody extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.58,
               ),
-              const Text(
+              Text(
                 'Get It Delivered, Right to Your Door',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color(0xff191D31),
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Styles.onboardingTitleFont,
               ),
               const SizedBox(
                 height: 15,
