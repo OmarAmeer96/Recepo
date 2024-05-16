@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recepo/Core/di/dependency_injection.dart';
 import 'package:recepo/Core/routing/routes.dart';
+import 'package:recepo/Features/home/presentation/views/home_view.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 import 'package:recepo/Features/login/presentation/login_view.dart';
 import 'package:recepo/Features/onboarding/presentation/views/onboarding_view.dart';
@@ -41,10 +42,10 @@ class AppRouter {
             child: const SignUpView(),
           ),
         );
-      // case Routes.homeView:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const HomeView(),
-      //   );
+      case Routes.homeView:
+        return MaterialPageRoute(
+          builder: (_) => const HomeView(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
