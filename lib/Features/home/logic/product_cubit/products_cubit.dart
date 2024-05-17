@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recepo/Features/home/data/repos/product_repo.dart';
+import 'package:recepo/Features/home/data/repos/products_repo.dart';
 import 'package:recepo/Features/home/logic/product_cubit/products_state.dart';
 
 class ProductsCubit extends Cubit<ProductsState> {

@@ -24,38 +24,11 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final ScrollController _scrollController = ScrollController();
-  int _offset = 0;
-  final int _limit = 10;
-
   @override
   void initState() {
     super.initState();
     context.read<LoginCubit>().emitGetUserProfile();
-    context
-        .read<ProductsCubit>()
-        .getProducts(_limit, _offset); // Fetch initial products
-
-    _scrollController.addListener(_onScroll);
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  void _onScroll() {
-    if (_scrollController.position.pixels >=
-        _scrollController.position.maxScrollExtent * 0.8) {
-      // Fetch the next set of products when scrolled 80% of the list
-      setState(() {
-        if (_limit != 100) {
-          _offset += _limit;
-        }
-      });
-      context.read<ProductsCubit>().getProducts(_limit, _offset);
-    }
+    context.read<ProductsCubit>().getProducts(100, 0); // Fetch initial products
   }
 
   @override
@@ -69,14 +42,14 @@ class _HomeViewState extends State<HomeView> {
           color: ColorsManager.primaryColor,
           displacement: 10,
           onRefresh: () async {
-            setState(() {
-              _offset = 0;
-            });
+            // setState(() {
+            //   _offset = 0;
+            // });
             context.read<LoginCubit>().emitGetUserProfile();
-            context.read<ProductsCubit>().getProducts(_limit, _offset);
+            context.read<ProductsCubit>().getProducts(100, 0);
           },
           child: CustomScrollView(
-            controller: _scrollController,
+            // controller: _scrollController,
             slivers: <Widget>[
               SliverAppBar(
                 clipBehavior: Clip.none,
