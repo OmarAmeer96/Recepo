@@ -32,7 +32,7 @@ class Recepo extends StatelessWidget {
           primaryColor: ColorsManager.mainBlue,
           scaffoldBackgroundColor: Colors.white,
         ),
-        initialRoute: Routes.splashView1,
+        initialRoute: Routes.splashView2,
       ),
     );
   }

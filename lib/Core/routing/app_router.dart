@@ -9,6 +9,7 @@ import 'package:recepo/Features/onboarding/presentation/views/onboarding_view.da
 import 'package:recepo/Features/signup/logic/signup_cubit/signup_cubit.dart';
 import 'package:recepo/Features/signup/presentation/signup_view.dart';
 import 'package:recepo/Features/splash1/presentation/views/splash_view1.dart';
+import 'package:recepo/Features/splash2/presentation/views/splash_view2.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -20,10 +21,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const SplashView1(),
         );
-      // case Routes.splashView2:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const SplashView2(),
-      //   );
+      case Routes.splashView2:
+        return MaterialPageRoute(
+          builder: (_) => const SplashView2(),
+        );
       case Routes.onboardingView:
         return MaterialPageRoute(
           builder: (_) => const OnboardingView(),
