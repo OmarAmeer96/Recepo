@@ -49,7 +49,7 @@ mixin _$ProductsState<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
@@ -59,7 +59,7 @@ mixin _$ProductsState<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
@@ -69,7 +69,7 @@ mixin _$ProductsState<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
@@ -116,7 +116,7 @@ class __$$InitialImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$InitialImpl<T> implements _Initial<T> {
+class _$InitialImpl<T> implements Initial<T> {
   const _$InitialImpl();
 
   @override
@@ -179,7 +179,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
@@ -192,7 +192,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
@@ -205,7 +205,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
@@ -220,8 +220,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements ProductsState<T> {
-  const factory _Initial() = _$InitialImpl<T>;
+abstract class Initial<T> implements ProductsState<T> {
+  const factory Initial() = _$InitialImpl<T>;
 }
 
 /// @nodoc
@@ -305,7 +305,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
@@ -318,7 +318,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
@@ -331,7 +331,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
@@ -459,7 +459,7 @@ class _$ProductsFetchedImpl<T> implements ProductsFetched<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
@@ -472,7 +472,7 @@ class _$ProductsFetchedImpl<T> implements ProductsFetched<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
@@ -485,7 +485,7 @@ class _$ProductsFetchedImpl<T> implements ProductsFetched<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
@@ -617,7 +617,7 @@ class _$SuccessAddImpl<T> implements SuccessAdd<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
@@ -630,7 +630,7 @@ class _$SuccessAddImpl<T> implements SuccessAdd<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
@@ -643,7 +643,7 @@ class _$SuccessAddImpl<T> implements SuccessAdd<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
@@ -776,7 +776,7 @@ class _$SuccessDeleteImpl<T> implements SuccessDelete<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
@@ -789,7 +789,7 @@ class _$SuccessDeleteImpl<T> implements SuccessDelete<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
@@ -802,7 +802,7 @@ class _$SuccessDeleteImpl<T> implements SuccessDelete<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
@@ -933,7 +933,7 @@ class _$ErrorImpl<T> implements Error<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
@@ -946,7 +946,7 @@ class _$ErrorImpl<T> implements Error<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
@@ -959,7 +959,7 @@ class _$ErrorImpl<T> implements Error<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,

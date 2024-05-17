@@ -18,6 +18,20 @@ class ProductsModel {
 
   factory ProductsModel.fromJson(Map<String, dynamic> json) =>
       _$ProductsModelFromJson(json);
+
+  ProductsModel copyWith({
+    List<Product>? products,
+    int? total,
+    int? skip,
+    int? limit,
+  }) {
+    return ProductsModel(
+      products: products ?? this.products,
+      total: total ?? this.total,
+      skip: skip ?? this.skip,
+      limit: limit ?? this.limit,
+    );
+  }
 }
 
 @JsonSerializable()

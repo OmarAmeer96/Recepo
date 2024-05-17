@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +26,24 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     context.read<LoginCubit>().emitGetUserProfile();
-    context.read<ProductsCubit>().getProducts(100, 0); // Fetch initial products
+    _scrollController = ScrollController();
+    context.read<ProductsCubit>().getProducts();
+  }
+
+  var _scrollController = ScrollController();
+
+  void _scrollListener() {
+    if (_scrollController.offset >=
+            _scrollController.position.maxScrollExtent * 0.7 &&
+        !_scrollController.position.outOfRange) {
+      context.read<ProductsCubit>().getProducts();
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -46,10 +61,10 @@ class _HomeViewState extends State<HomeView> {
             //   _offset = 0;
             // });
             context.read<LoginCubit>().emitGetUserProfile();
-            context.read<ProductsCubit>().getProducts(100, 0);
+            // context.read<ProductsCubit>().getProducts(100, 0);
           },
           child: CustomScrollView(
-            // controller: _scrollController,
+            controller: _scrollController..addListener(_scrollListener),
             slivers: <Widget>[
               SliverAppBar(
                 clipBehavior: Clip.none,
@@ -143,7 +158,6 @@ class _HomeViewState extends State<HomeView> {
               ),
               BlocBuilder<ProductsCubit, ProductsState>(
                 builder: (context, state) {
-                  log('Product: $state');
                   if (state is Loading) {
                     return const SliverToBoxAdapter(
                       child: Center(child: CircularProgressIndicator()),
@@ -156,7 +170,7 @@ class _HomeViewState extends State<HomeView> {
                     return SliverList(
                       delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
-                          log('Product: ${state.data.products[index].title}');
+                          // log('Product: ${state.data.products[index].title}');
                           final product = state.data.products[index];
                           return ListTile(
                             leading: CachedNetworkImage(

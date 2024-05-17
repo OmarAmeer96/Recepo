@@ -3,7 +3,7 @@ part 'products_state.freezed.dart';
 
 @freezed
 class ProductsState<T> with _$ProductsState<T> {
-  const factory ProductsState.initial() = _Initial;
+  const factory ProductsState.initial() = Initial;
   const factory ProductsState.loading() = Loading;
   const factory ProductsState.productsFetched(T data) = ProductsFetched<T>;
   const factory ProductsState.successAdd(T data) = SuccessAdd<T>;
