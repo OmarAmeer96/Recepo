@@ -13,6 +13,7 @@ class LoginCubit extends Cubit<LoginState> {
   final formKey = GlobalKey<FormState>();
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool isObscureText = true;
 
   Future<void> emitLoginState() async {
     emit(const LoginState.loading());

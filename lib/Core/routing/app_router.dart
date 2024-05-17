@@ -8,6 +8,7 @@ import 'package:recepo/Features/home/presentation/views/home_view.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 import 'package:recepo/Features/login/presentation/login_view.dart';
 import 'package:recepo/Features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:recepo/Features/profile/logic/update_user_profile_cubit/update_user_profile_cubit.dart';
 import 'package:recepo/Features/profile/presentation/views/user_edit_profile_view.dart';
 import 'package:recepo/Features/signup/logic/signup_cubit/signup_cubit.dart';
 import 'package:recepo/Features/signup/presentation/signup_view.dart';
@@ -43,10 +44,7 @@ class AppRouter {
         );
       case Routes.loginView:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<LoginCubit>(),
-            child: const LoginView(),
-          ),
+          builder: (_) => const LoginView(),
         );
       case Routes.signUpView:
         return MaterialPageRoute(
@@ -61,7 +59,10 @@ class AppRouter {
         );
       case Routes.userEditProfileView:
         return MaterialPageRoute(
-          builder: (_) => const UserEditProfileView(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<UpdateUserProfileCubit>(),
+            child: const UserEditProfileView(),
+          ),
         );
       default:
         return MaterialPageRoute(

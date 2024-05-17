@@ -4,6 +4,8 @@ import 'package:recepo/Core/networking/api_service.dart';
 import 'package:recepo/Core/networking/dio_factory.dart';
 import 'package:recepo/Features/login/data/repos/login_repo.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
+import 'package:recepo/Features/profile/data/repos/update_user_profile_repo.dart';
+import 'package:recepo/Features/profile/logic/update_user_profile_cubit/update_user_profile_cubit.dart';
 import 'package:recepo/Features/signup/data/repos/signup_repo.dart';
 import 'package:recepo/Features/signup/logic/signup_cubit/signup_cubit.dart';
 
@@ -24,8 +26,8 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt()));
 
   // Update User Profile Repo & Cubit
-  // getIt.registerLazySingleton<UpdateUserProfileRepo>(
-  //     () => UpdateUserProfileRepo(getIt()));
-  // getIt.registerFactory<UpdateUserProfileCubit>(
-  //     () => UpdateUserProfileCubit(getIt()));
+  getIt.registerLazySingleton<UpdateUserProfileRepo>(
+      () => UpdateUserProfileRepo(getIt()));
+  getIt.registerFactory<UpdateUserProfileCubit>(
+      () => UpdateUserProfileCubit(getIt()));
 }

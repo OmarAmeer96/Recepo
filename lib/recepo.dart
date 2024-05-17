@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:recepo/Core/di/dependency_injection.dart';
 import 'package:recepo/Core/routing/app_router.dart';
 import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
+import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 
 class Recepo extends StatelessWidget {
   // final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
@@ -15,24 +18,23 @@ class Recepo extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      // GetMaterialApp
-      child: MaterialApp(
-        // Animation
-        // home: Scaffold(
-        //   backgroundColor: Colors.white,
-        //   body: Center(
-        //     child: LoadingAnimation(),
-        //   ),
-        // ),
-        debugShowCheckedModeBanner: false,
-        title: 'Appointment App',
-        onGenerateRoute: appRouter.generateRoute,
-        // navigatorKey: navKey,
-        theme: ThemeData(
-          primaryColor: ColorsManager.mainBlue,
-          scaffoldBackgroundColor: Colors.white,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<LoginCubit>(
+            create: (context) => getIt<LoginCubit>(),
+          ),
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Appointment App',
+          onGenerateRoute: appRouter.generateRoute,
+          // navigatorKey: navKey,
+          theme: ThemeData(
+            primaryColor: ColorsManager.mainBlue,
+            scaffoldBackgroundColor: Colors.white,
+          ),
+          initialRoute: Routes.splashView2,
         ),
-        initialRoute: Routes.splashView2,
       ),
     );
   }

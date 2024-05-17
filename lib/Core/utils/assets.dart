@@ -22,4 +22,9 @@ class AssetsData {
       'assets/images/sliverPersistBackground.png';
   static const profileImage = 'assets/images/profileImage.png';
   static const threeDashSvg = 'assets/svgs/threeDashSvg.svg';
+
+  // Profile
+  static const takePhotoIcon = 'assets/svgs/takePhotoIcon.svg';
+  static const choosePhotoIcon = 'assets/svgs/choosePhotoIcon.svg';
+  static const cameraIcon = 'assets/svgs/cameraIcon.svg';
 }

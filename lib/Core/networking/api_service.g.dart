@@ -107,6 +107,88 @@ class _ApiService implements ApiService {
     return value;
   }
 
+  @override
+  Future<UpdateUserProfileResponse> updateUserProfile({
+    required String token,
+    required int id,
+    String? fullName,
+    String? gender,
+    String? city,
+    File? profilePicture,
+    String? nationalId,
+    String? phone,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = FormData();
+    _data.fields.add(MapEntry(
+      'id',
+      id.toString(),
+    ));
+    if (fullName != null) {
+      _data.fields.add(MapEntry(
+        'fullName',
+        fullName,
+      ));
+    }
+    if (gender != null) {
+      _data.fields.add(MapEntry(
+        'gender',
+        gender,
+      ));
+    }
+    if (city != null) {
+      _data.fields.add(MapEntry(
+        'city',
+        city,
+      ));
+    }
+    if (profilePicture != null) {
+      _data.files.add(MapEntry(
+        'profilePicture',
+        MultipartFile.fromFileSync(
+          profilePicture.path,
+          filename: profilePicture.path.split(Platform.pathSeparator).last,
+        ),
+      ));
+    }
+    if (nationalId != null) {
+      _data.fields.add(MapEntry(
+        'nationalId',
+        nationalId,
+      ));
+    }
+    if (phone != null) {
+      _data.fields.add(MapEntry(
+        'phone',
+        phone,
+      ));
+    }
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<UpdateUserProfileResponse>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+            .compose(
+              _dio.options,
+              'user/update',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = UpdateUserProfileResponse.fromJson(_result.data!);
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

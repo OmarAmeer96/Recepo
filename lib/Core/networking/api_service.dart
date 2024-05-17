@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:recepo/Core/networking/api_constants.dart';
 import 'package:recepo/Features/login/data/models/get_user_profile_response.dart';
 import 'package:recepo/Features/login/data/models/login_request_body.dart';
 import 'package:recepo/Features/login/data/models/login_response.dart';
+import 'package:recepo/Features/profile/data/models/update_user_profile_response.dart';
 import 'package:recepo/Features/signup/data/models/signup_request_body.dart';
 import 'package:recepo/Features/signup/data/models/signup_response.dart';
 import 'package:retrofit/http.dart';
@@ -30,4 +33,18 @@ abstract class ApiService {
     @Header('Authorization') String token,
     @Query('id') int id,
   );
+
+  // Update Profile
+  @PUT(ApiConstants.updateProfile)
+  @MultiPart()
+  Future<UpdateUserProfileResponse> updateUserProfile({
+    @Header('Authorization') required String token,
+    @Part(name: "id") required int id,
+    @Part(name: "fullName") String? fullName,
+    @Part(name: "gender") String? gender,
+    @Part(name: "city") String? city,
+    @Part(name: "profilePicture") File? profilePicture,
+    @Part(name: "nationalId") String? nationalId,
+    @Part(name: "phone") String? phone,
+  });
 }

@@ -65,6 +65,10 @@ dependencies:
   get: ^4.6.6
   # For caching network images.
   cached_network_image: ^3.3.1
+  # For handling image picker
+  image_picker: ^1.0.5
+  # For handling permissions
+  permission_handler: ^11.3.1
 
 dev_dependencies:
   flutter_test:
