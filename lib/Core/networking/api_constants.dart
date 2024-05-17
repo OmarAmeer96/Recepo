@@ -1,7 +1,10 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://vcare.integration25.com/api/";
-  static const String login = "auth/login";
-  static const String signup = "auth/register";
+  static const String apiBaseUrl =
+      "https://wheel-n-deal-production.up.railway.app/api/v1/";
+  static const String login = "auth/signin";
+  static const String signup = "auth/signup";
+  static const String getUserProfile = "user/get-normal-user-porfile";
+  static const String updateProfile = "user/update";
 }
 
 class ApiErrors {

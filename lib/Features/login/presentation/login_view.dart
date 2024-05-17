@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recepo/Core/utils/extensions.dart';
 import 'package:recepo/Core/utils/spacing.dart';
-import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/styles.dart';
 import 'package:recepo/Core/widgets/custom_main_button.dart';
@@ -79,8 +77,7 @@ class LoginView extends StatelessWidget {
 
   void validateThenLogin(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      // context.read<LoginCubit>().emitLoginState();
-      context.pushReplacementNamed(Routes.homeView);
+      context.read<LoginCubit>().emitLoginState();
     }
   }
 }

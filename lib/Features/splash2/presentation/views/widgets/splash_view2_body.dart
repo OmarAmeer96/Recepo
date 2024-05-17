@@ -36,7 +36,12 @@ class _SplashView2BodyState extends State<SplashView2Body>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        FadingLogo(opacityAnimation: opacityAnimation),
+        Hero(
+          tag: "splashView2ToHomeView",
+          child: FadingLogo(
+            opacityAnimation: opacityAnimation,
+          ),
+        ),
         const SizedBox(
           height: 20,
         ),

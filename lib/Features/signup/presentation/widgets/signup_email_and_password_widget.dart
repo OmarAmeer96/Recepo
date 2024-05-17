@@ -59,7 +59,7 @@ class _SignupEmailAndPasswordWidgetState
             labelStyle: Styles.enabledTextFieldsLabelText,
             isObscureText: false,
             style: Styles.focusedTextFieldsLabelText,
-            controller: context.read<SignupCubit>().nameController,
+            controller: context.read<SignupCubit>().usernameController,
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Please enter your your username';

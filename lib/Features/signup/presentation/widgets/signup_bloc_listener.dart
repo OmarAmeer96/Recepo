@@ -5,6 +5,7 @@ import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/font_family_helper.dart';
 import 'package:recepo/Core/theming/styles.dart';
+import 'package:recepo/Core/utils/loaading_animation.dart';
 import 'package:recepo/Features/signup/logic/signup_cubit/signup_cubit.dart';
 import 'package:recepo/Features/signup/logic/signup_cubit/signup_state.dart';
 
@@ -22,15 +23,16 @@ class SignupBlocListener extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.mainBlue,
-                ),
+                child: LoadingAnimation(),
+                // CircularProgressIndicator(
+                //   color: ColorsManager.mainBlue,
+                // ),
               ),
             );
           },
           success: (signupResponse) {
             context.pop();
-            context.pushNamed(Routes.homeView);
+            context.pushReplacementNamed(Routes.homeView);
           },
           error: (error) {
             context.pop();

@@ -57,7 +57,7 @@ class _LoginEmailAndPasswordWidgetState
             labelStyle: Styles.enabledTextFieldsLabelText,
             isObscureText: false,
             style: Styles.focusedTextFieldsLabelText,
-            controller: context.read<LoginCubit>().emailController,
+            controller: context.read<LoginCubit>().usernameController,
             validator: (value) {
               if (value!.isEmpty || !AppRegex.isEmailValid(value)) {
                 return 'Please enter your username';

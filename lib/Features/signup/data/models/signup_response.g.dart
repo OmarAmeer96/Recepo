@@ -12,8 +12,7 @@ SignupResponse _$SignupResponseFromJson(Map<String, dynamic> json) =>
       userData: json['data'] == null
           ? null
           : UserData.fromJson(json['data'] as Map<String, dynamic>),
-      status: json['status'] as bool?,
-      code: (json['code'] as num?)?.toInt(),
+      status: (json['status'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$SignupResponseToJson(SignupResponse instance) =>
@@ -21,15 +20,18 @@ Map<String, dynamic> _$SignupResponseToJson(SignupResponse instance) =>
       'message': instance.message,
       'data': instance.userData,
       'status': instance.status,
-      'code': instance.code,
     };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
+      stripeId: json['stripeId'] as String?,
+      userId: (json['userId'] as num?)?.toInt(),
       token: json['token'] as String?,
-      userName: json['username'] as String?,
+      refreshToken: json['refreshToken'] as String?,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
+      'stripeId': instance.stripeId,
+      'userId': instance.userId,
       'token': instance.token,
-      'username': instance.userName,
+      'refreshToken': instance.refreshToken,
     };

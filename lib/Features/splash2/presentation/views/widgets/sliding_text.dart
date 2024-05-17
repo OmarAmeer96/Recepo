@@ -22,7 +22,7 @@ class SlidingText extends StatelessWidget {
           child: Opacity(
             opacity: opacityAnimation.value,
             child: Text(
-              "Shop With Us Now!",
+              "Shop With Ease!",
               textAlign: TextAlign.center,
               style: Styles.onboardingTitleFont,
             ),

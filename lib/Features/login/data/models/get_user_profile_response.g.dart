@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_response.dart';
+part of 'get_user_profile_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
-    LoginResponse(
+GetUserProfileResponse _$GetUserProfileResponseFromJson(
+        Map<String, dynamic> json) =>
+    GetUserProfileResponse(
       message: json['message'] as String?,
       userData: json['data'] == null
           ? null
@@ -15,7 +16,8 @@ LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
       status: (json['status'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
+Map<String, dynamic> _$GetUserProfileResponseToJson(
+        GetUserProfileResponse instance) =>
     <String, dynamic>{
       'message': instance.message,
       'data': instance.userData,
@@ -23,17 +25,21 @@ Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
     };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
+      phoneNumber: json['phoneNumber'] as String?,
+      fullName: json['fullName'] as String?,
+      profilePhotoURL: json['profilePhotoURL'] as String?,
       role: json['role'] as String?,
-      stripeId: json['stripeId'] as String?,
-      userId: (json['userId'] as num?)?.toInt(),
-      token: json['token'] as String?,
-      refreshToken: json['refreshToken'] as String?,
+      gender: json['gender'] as String?,
+      nationalId: json['nationalId'] as String?,
+      city: json['city'] as String?,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
+      'phoneNumber': instance.phoneNumber,
+      'fullName': instance.fullName,
+      'profilePhotoURL': instance.profilePhotoURL,
       'role': instance.role,
-      'stripeId': instance.stripeId,
-      'userId': instance.userId,
-      'token': instance.token,
-      'refreshToken': instance.refreshToken,
+      'gender': instance.gender,
+      'nationalId': instance.nationalId,
+      'city': instance.city,
     };

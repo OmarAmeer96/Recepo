@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recepo/Core/di/dependency_injection.dart';
 import 'package:recepo/Core/routing/routes.dart';
+import 'package:recepo/Core/shared_prefs/shared_prefs.dart';
+import 'package:recepo/Core/shared_prefs/shred_prefs_constants.dart';
 import 'package:recepo/Features/home/presentation/views/home_view.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 import 'package:recepo/Features/login/presentation/login_view.dart';
@@ -27,7 +29,16 @@ class AppRouter {
         );
       case Routes.onboardingView:
         return MaterialPageRoute(
-          builder: (_) => const OnboardingView(),
+          builder: (_) {
+            if (SharedPrefs.getString(key: kToken) == null) {
+              return const OnboardingView();
+            } else if ((SharedPrefs.getString(key: kRole) == 'USER') &&
+                (SharedPrefs.getString(key: kToken) != null)) {
+              return const HomeView();
+            } else {
+              return const OnboardingView();
+            }
+          },
         );
       case Routes.loginView:
         return MaterialPageRoute(

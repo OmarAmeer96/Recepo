@@ -6,14 +6,12 @@ class LoginResponse {
   String? message;
   @JsonKey(name: 'data')
   UserData? userData;
-  bool? status;
-  int? code;
+  int? status;
 
   LoginResponse({
     this.message,
     this.userData,
     this.status,
-    this.code,
   });
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>
@@ -22,13 +20,18 @@ class LoginResponse {
 
 @JsonSerializable()
 class UserData {
+  String? role;
+  String? stripeId;
+  int? userId;
   String? token;
-  @JsonKey(name: 'username')
-  String? userName;
+  String? refreshToken;
 
   UserData({
+    this.role,
+    this.stripeId,
+    this.userId,
     this.token,
-    this.userName,
+    this.refreshToken,
   });
 
   factory UserData.fromJson(Map<String, dynamic> json) =>

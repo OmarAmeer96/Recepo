@@ -18,7 +18,7 @@ class LoadingAnimationState extends State<LoadingAnimation>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1000),
       vsync: this,
     )..repeat(reverse: true);
 
@@ -38,9 +38,7 @@ class LoadingAnimationState extends State<LoadingAnimation>
       animation: _controller,
       builder: (context, child) {
         return Transform.rotate(
-          angle: _rotationAnimation.value *
-              2 *
-              3.141592653589793,
+          angle: _rotationAnimation.value * 2 * 3.141592653589793,
           child: Stack(
             alignment: Alignment.center,
             children: [
