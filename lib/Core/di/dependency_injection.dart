@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:recepo/Core/networking/api_service.dart';
 import 'package:recepo/Core/networking/dio_factory.dart';
+import 'package:recepo/Features/home/data/repos/product_repo.dart';
+import 'package:recepo/Features/home/logic/product_cubit/products_cubit.dart';
 import 'package:recepo/Features/login/data/repos/login_repo.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 import 'package:recepo/Features/profile/data/repos/update_user_profile_repo.dart';
@@ -30,4 +32,8 @@ Future<void> setupGetIt() async {
       () => UpdateUserProfileRepo(getIt()));
   getIt.registerFactory<UpdateUserProfileCubit>(
       () => UpdateUserProfileCubit(getIt()));
+
+  // Products
+  getIt.registerLazySingleton<ProductsRepo>(() => ProductsRepo(getIt()));
+  getIt.registerFactory<ProductsCubit>(() => ProductsCubit(getIt()));
 }

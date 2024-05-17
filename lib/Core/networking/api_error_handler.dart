@@ -113,7 +113,7 @@ extension DataSourceExtension on DataSource {
             message: ResponseMessage.NO_INTERNET_CONNECTION);
       case DataSource.DEFAULT:
         return ApiErrorModel(
-            code: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT);
+            code: ResponseCode.DEFAULT, message: ResponseMessage.SEND_TIMEOUT);
     }
   }
 }
@@ -160,8 +160,6 @@ ApiErrorModel _handleError(DioException error) {
     case DioExceptionType.connectionError:
       return DataSource.DEFAULT.getFailure();
     case DioExceptionType.badCertificate:
-      return DataSource.DEFAULT.getFailure();
-    case DioExceptionType.badResponse:
       return DataSource.DEFAULT.getFailure();
   }
 }

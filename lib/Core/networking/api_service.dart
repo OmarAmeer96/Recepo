@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:recepo/Core/networking/api_constants.dart';
+import 'package:recepo/Features/home/data/models/products_model.dart';
 import 'package:recepo/Features/login/data/models/get_user_profile_response.dart';
 import 'package:recepo/Features/login/data/models/login_request_body.dart';
 import 'package:recepo/Features/login/data/models/login_response.dart';
@@ -47,4 +48,25 @@ abstract class ApiService {
     @Part(name: "nationalId") String? nationalId,
     @Part(name: "phone") String? phone,
   });
+
+  // Get Products with Pagination
+  @GET("https://dummyjson.com/products")
+  Future<ProductsModel> getProducts({
+    @Query('limit') required int limit,
+    @Query('skip') required int skip,
+  });
+
+  // // Add Product
+  // @POST("https://dummyjson.com/products/add")
+  // Future<AddProductResponse> addProduct({
+  //   @Header('Authorization') required String token,
+  //   @Body() required Product product,
+  // });
+
+  // // Delete Product
+  // @DELETE("https://dummyjson.com/products/{id}")
+  // Future<DeleteProductResponse> deleteProduct({
+  //   @Header('Authorization') required String token,
+  //   @Path('id') required int id,
+  // });
 }

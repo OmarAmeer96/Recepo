@@ -5,6 +5,7 @@ import 'package:recepo/Core/di/dependency_injection.dart';
 import 'package:recepo/Core/routing/app_router.dart';
 import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
+import 'package:recepo/Features/home/logic/product_cubit/products_cubit.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 
 class Recepo extends StatelessWidget {
@@ -22,6 +23,9 @@ class Recepo extends StatelessWidget {
         providers: [
           BlocProvider<LoginCubit>(
             create: (context) => getIt<LoginCubit>(),
+          ),
+          BlocProvider<ProductsCubit>(
+            create: (context) => getIt<ProductsCubit>(),
           ),
         ],
         child: MaterialApp(
