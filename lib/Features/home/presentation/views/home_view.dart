@@ -1,11 +1,11 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:recepo/Core/shared_prefs/shared_prefs.dart';
-import 'package:recepo/Core/shared_prefs/shred_prefs_constants.dart';
+import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/utils/assets.dart';
+import 'package:recepo/Core/utils/extensions.dart';
 import 'package:recepo/Features/home/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:recepo/Features/home/presentation/views/widgets/user_profile_picture_item.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -23,32 +23,21 @@ class HomeView extends StatelessWidget {
               title: Padding(
                 padding: const EdgeInsets.only(top: 12),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    GestureDetector(
+                      child: SvgPicture.asset(AssetsData.threeDashSvg),
+                      onTap: () {},
+                    ),
                     SvgPicture.asset(AssetsData.appLogo1Svg),
-                    const Spacer(),
-                    SizedBox(
-                      height: 50,
-                      width: 50,
-                      child: /* SharedPrefs.getString(key: kProfilePhotoURL)
-                                  .isNotEmpty || */
-                          SharedPrefs.getString(key: kProfilePhotoURL) != null
-                              ? ClipOval(
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.cover,
-                                    imageUrl: SharedPrefs.getString(
-                                        key: kProfilePhotoURL)!,
-                                    placeholder: (context, url) =>
-                                        const CircularProgressIndicator(),
-                                    errorWidget: (context, url, error) =>
-                                        const Icon(Icons.error),
-                                  ),
-                                )
-                              : const CircleAvatar(
-                                  backgroundColor: Colors.white,
-                                  backgroundImage: AssetImage(
-                                    AssetsData.profileImage,
-                                  ),
-                                ),
+                    GestureDetector(
+                      onTap: () {
+                        context.pushNamed(Routes.userEditProfileView);
+                      },
+                      child: const Hero(
+                        tag: 'profile_picture',
+                        child: UserProfilePictureItem(),
+                      ),
                     ),
                   ],
                 ),
@@ -62,12 +51,6 @@ class HomeView extends StatelessWidget {
                     image: AssetImage(AssetsData.sliverPersistBackgroundImage),
                     fit: BoxFit.cover,
                   ),
-                  // color: ColorsManager.mainGrey,
-                  // gradient: LinearGradient(
-                  //   colors: [Colors.red, ColorsManager.primaryColor],
-                  //   begin: Alignment.topLeft,
-                  //   end: Alignment.bottomRight,
-                  // ),
                 ),
               ),
               expandedHeight: 100.h,

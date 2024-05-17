@@ -8,6 +8,7 @@ import 'package:recepo/Features/home/presentation/views/home_view.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 import 'package:recepo/Features/login/presentation/login_view.dart';
 import 'package:recepo/Features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:recepo/Features/profile/presentation/views/user_edit_profile_view.dart';
 import 'package:recepo/Features/signup/logic/signup_cubit/signup_cubit.dart';
 import 'package:recepo/Features/signup/presentation/signup_view.dart';
 import 'package:recepo/Features/splash1/presentation/views/splash_view1.dart';
@@ -57,6 +58,10 @@ class AppRouter {
       case Routes.homeView:
         return MaterialPageRoute(
           builder: (_) => const HomeView(),
+        );
+      case Routes.userEditProfileView:
+        return MaterialPageRoute(
+          builder: (_) => const UserEditProfileView(),
         );
       default:
         return MaterialPageRoute(

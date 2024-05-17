@@ -21,4 +21,5 @@ class AssetsData {
   static const sliverPersistBackgroundImage =
       'assets/images/sliverPersistBackground.png';
   static const profileImage = 'assets/images/profileImage.png';
+  static const threeDashSvg = 'assets/svgs/threeDashSvg.svg';
 }
