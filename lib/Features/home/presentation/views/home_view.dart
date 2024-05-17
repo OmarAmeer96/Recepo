@@ -10,7 +10,6 @@ import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/utils/assets.dart';
 import 'package:recepo/Core/utils/extensions.dart';
 import 'package:recepo/Features/home/presentation/views/widgets/custom_search_text_field.dart';
-import 'package:recepo/Features/home/presentation/views/widgets/user_profile_picture_item.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_state.dart';
 

@@ -5,7 +5,6 @@ import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/shared_prefs/shared_prefs.dart';
 import 'package:recepo/Core/shared_prefs/shred_prefs_constants.dart';
 import 'package:recepo/Features/home/presentation/views/home_view.dart';
-import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 import 'package:recepo/Features/login/presentation/login_view.dart';
 import 'package:recepo/Features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:recepo/Features/profile/logic/update_user_profile_cubit/update_user_profile_cubit.dart';
