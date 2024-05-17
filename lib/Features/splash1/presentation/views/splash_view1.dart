@@ -2,7 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:recepo/Core/helpers/assets.dart';
+import 'package:recepo/Core/utils/assets.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Features/onboarding/presentation/views/onboarding_view.dart';
 

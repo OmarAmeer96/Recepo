@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recepo/Core/helpers/extensions.dart';
+import 'package:recepo/Core/utils/extensions.dart';
 import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/styles.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recepo/Core/helpers/extensions.dart';
-import 'package:recepo/Core/helpers/spacing.dart';
+import 'package:recepo/Core/utils/extensions.dart';
+import 'package:recepo/Core/utils/spacing.dart';
 import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/widgets/custom_main_button.dart';
 import 'package:recepo/Core/widgets/terms_and_conditions_text.dart';

@@ -17,6 +17,13 @@ class Recepo extends StatelessWidget {
       minTextAdapt: true,
       // GetMaterialApp
       child: MaterialApp(
+        // Animation
+        // home: Scaffold(
+        //   backgroundColor: Colors.white,
+        //   body: Center(
+        //     child: LoadingAnimation(),
+        //   ),
+        // ),
         debugShowCheckedModeBanner: false,
         title: 'Appointment App',
         onGenerateRoute: appRouter.generateRoute,

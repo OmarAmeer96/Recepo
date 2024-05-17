@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recepo/Core/helpers/assets.dart';
-import 'package:recepo/Core/helpers/extensions.dart';
+import 'package:recepo/Core/utils/assets.dart';
+import 'package:recepo/Core/utils/extensions.dart';
 import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/styles.dart';
