@@ -4,6 +4,8 @@ import 'package:recepo/Core/di/dependency_injection.dart';
 import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/shared_prefs/shared_prefs.dart';
 import 'package:recepo/Core/shared_prefs/shred_prefs_constants.dart';
+import 'package:recepo/Features/home/data/models/products_model.dart'; // Import Product model
+import 'package:recepo/Features/home/presentation/views/edit_product_view.dart';
 import 'package:recepo/Features/home/presentation/views/home_view.dart';
 import 'package:recepo/Features/login/presentation/login_view.dart';
 import 'package:recepo/Features/onboarding/presentation/views/onboarding_view.dart';
@@ -16,8 +18,7 @@ import 'package:recepo/Features/splash2/presentation/views/splash_view2.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
-    // This arguments to be passed in any screen like this: (arguments as ClassName).
-    // final arguments = settings.arguments;
+    final arguments = settings.arguments;
 
     switch (settings.name) {
       case Routes.splashView1:
@@ -62,6 +63,13 @@ class AppRouter {
             create: (context) => getIt<UpdateUserProfileCubit>(),
             child: const UserEditProfileView(),
           ),
+        );
+      case Routes.editProductView:
+        return MaterialPageRoute(
+          builder: (_) {
+            final product = arguments as Product?;
+            return EditProductView(product: product);
+          },
         );
       default:
         return MaterialPageRoute(

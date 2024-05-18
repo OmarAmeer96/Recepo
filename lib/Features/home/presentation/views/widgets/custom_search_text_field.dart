@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/styles.dart';
 
@@ -47,15 +48,21 @@ class CustomSearchTextField extends StatelessWidget {
         ),
         labelText: 'Search',
         labelStyle: Styles.enabledTextFieldsLabelText,
-        prefixIcon:
-            const Icon(Icons.search, color: ColorsManager.subPrimaryColor),
-        suffixIcon: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.filter_list,
-            color: ColorsManager.subPrimaryColor,
-          ),
+        prefixIcon: const Icon(
+          FontAwesomeIcons.magnifyingGlass,
         ),
+        // const Icon(
+        //   Icons.search,
+        //   color: ColorsManager.subPrimaryColor,
+        //   size: 24,
+        // ),
+        // suffixIcon: IconButton(
+        //   onPressed: () {},
+        //   icon: const Icon(
+        //     Icons.filter_list,
+        //     color: ColorsManager.subPrimaryColor,
+        //   ),
+        // ),
         fillColor: ColorsManager.textFieldFillColor,
         filled: true,
       ),

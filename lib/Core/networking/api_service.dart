@@ -56,11 +56,19 @@ abstract class ApiService {
     @Query('skip') required int skip,
   });
 
+  // Search Products
   @GET("https://dummyjson.com/products/search")
   Future<ProductsModel> searchProducts({
     @Query('q') required String query,
     @Query('limit') required int limit,
     @Query('skip') required int skip,
+  });
+
+  // Update Product
+  @PUT("https://dummyjson.com/products/{id}")
+  Future<Product> updateProduct({
+    @Path('id') required int id,
+    @Body() required Product productsModel,
   });
 
   // Delete Product

@@ -239,7 +239,12 @@ class _HomeViewState extends State<HomeView> {
                                       topRight: Radius.circular(0),
                                       bottomRight: Radius.circular(0),
                                     ),
-                                    onPressed: (BuildContext context) {},
+                                    onPressed: (BuildContext context) {
+                                      context.pushNamed(
+                                        Routes.editProductView,
+                                        arguments: product,
+                                      );
+                                    },
                                     backgroundColor: const Color(0xFF21B7CA),
                                     foregroundColor: Colors.white,
                                     icon: Icons.edit,
@@ -247,7 +252,11 @@ class _HomeViewState extends State<HomeView> {
                                   ),
                                 ],
                               ),
-                              child: ProductItem(product: product),
+                              child: Hero(
+                                tag:
+                                    "edit_product_view_to_product_item_${product.id}",
+                                child: ProductItem(product: product),
+                              ),
                             ),
                           );
                         },
