@@ -4,11 +4,13 @@ import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/styles.dart';
 
 class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({super.key});
+  final void Function(String)? onChanged;
+  const CustomSearchTextField({super.key, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: onChanged,
       decoration: InputDecoration(
         isDense: true,
         contentPadding: EdgeInsets.symmetric(

@@ -56,12 +56,12 @@ abstract class ApiService {
     @Query('skip') required int skip,
   });
 
-  // // Add Product
-  // @POST("https://dummyjson.com/products/add")
-  // Future<AddProductResponse> addProduct({
-  //   @Header('Authorization') required String token,
-  //   @Body() required Product product,
-  // });
+  @GET("https://dummyjson.com/products/search")
+  Future<ProductsModel> searchProducts({
+    @Query('q') required String query,
+    @Query('limit') required int limit,
+    @Query('skip') required int skip,
+  });
 
   // // Delete Product
   // @DELETE("https://dummyjson.com/products/{id}")

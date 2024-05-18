@@ -60,11 +60,19 @@ class _HomeViewState extends State<HomeView> {
           color: ColorsManager.primaryColor,
           displacement: 10,
           onRefresh: () async {
-            // setState(() {
-            //   _offset = 0;
-            // });
             context.read<LoginCubit>().emitGetUserProfile();
-            context.read<ProductsCubit>().getProducts();
+            if (context.read<ProductsCubit>().state is ProductsFetched &&
+                (context.read<ProductsCubit>().state as ProductsFetched)
+                    .data
+                    .products
+                    .isNotEmpty) {
+              final query = context.read<ProductsCubit>().currentQuery;
+              if (query.isNotEmpty) {
+                context.read<ProductsCubit>().searchProducts(query);
+              } else {
+                context.read<ProductsCubit>().getProducts();
+              }
+            }
           },
           child: CustomScrollView(
             controller: _scrollController..addListener(_scrollListener),
@@ -147,9 +155,16 @@ class _HomeViewState extends State<HomeView> {
                         right: 12.w,
                         bottom: 12.h,
                       ),
-                      child: const Hero(
+                      child: Hero(
                         tag: "splashView2ToHomeView",
-                        child: CustomSearchTextField(),
+                        child: CustomSearchTextField(
+                          onChanged: (query) {
+                            context.read<ProductsCubit>().searchProducts(query);
+                          },
+                          // onClear: () {
+                          //   context.read<ProductsCubit>().clearSearch();
+                          // },
+                        ),
                       ),
                     ),
                   ),
@@ -183,7 +198,7 @@ class _HomeViewState extends State<HomeView> {
                     return SliverList(
                       delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
-                          final product = state.data.products[index];
+                          final product = state.data.products![index];
                           return Padding(
                             padding: EdgeInsets.symmetric(
                               horizontal: 12.w,
@@ -192,15 +207,25 @@ class _HomeViewState extends State<HomeView> {
                             child: ProductItem(product: product),
                           );
                         },
-                        childCount: state.data.products.length,
+                        childCount: state.data.products!.length,
                       ),
                     );
                   } else {
                     return const SliverToBoxAdapter(
-                      child: Center(child: Text('No products available')),
+                      child: Center(child: Text('Unexpected state')),
                     );
                   }
                 },
+              ),
+              SliverToBoxAdapter(
+                child: context.read<ProductsCubit>().hasReachedEnd
+                    ? const Center(
+                        child: Text(
+                          'No more products',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      )
+                    : Container(),
               ),
             ],
           ),
@@ -223,6 +248,7 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   double get minExtent => minHeight;
+
   @override
   double get maxExtent => maxHeight;
 

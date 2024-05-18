@@ -16,4 +16,15 @@ class ProductsRepo {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
+  Future<ApiResult<ProductsModel>> searchProducts(
+      String query, int limit, int skip) async {
+    try {
+      final response = await _apiService.searchProducts(
+          query: query, limit: limit, skip: skip);
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
 }
