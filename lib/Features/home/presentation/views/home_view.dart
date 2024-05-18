@@ -12,6 +12,7 @@ import 'package:recepo/Core/utils/extensions.dart';
 import 'package:recepo/Features/home/logic/product_cubit/products_cubit.dart';
 import 'package:recepo/Features/home/logic/product_cubit/products_state.dart';
 import 'package:recepo/Features/home/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:recepo/Features/home/presentation/views/widgets/product_item.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 
 class HomeView extends StatefulWidget {
@@ -61,7 +62,7 @@ class _HomeViewState extends State<HomeView> {
             //   _offset = 0;
             // });
             context.read<LoginCubit>().emitGetUserProfile();
-            // context.read<ProductsCubit>().getProducts(100, 0);
+            context.read<ProductsCubit>().getProducts();
           },
           child: CustomScrollView(
             controller: _scrollController..addListener(_scrollListener),
@@ -133,9 +134,6 @@ class _HomeViewState extends State<HomeView> {
                   minHeight: 100.0,
                   maxHeight: 100.0,
                   child: Container(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                    ),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(5),
@@ -170,19 +168,13 @@ class _HomeViewState extends State<HomeView> {
                     return SliverList(
                       delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
-                          // log('Product: ${state.data.products[index].title}');
                           final product = state.data.products[index];
-                          return ListTile(
-                            leading: CachedNetworkImage(
-                              imageUrl: product.thumbnail,
-                              placeholder: (context, url) =>
-                                  const CircularProgressIndicator(),
-                              errorWidget: (context, url, error) =>
-                                  const Icon(Icons.error),
+                          return Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 12.w,
+                              vertical: 8.h,
                             ),
-                            title: Text(product.title),
-                            subtitle:
-                                Text('\$${product.price.toStringAsFixed(2)}'),
+                            child: ProductItem(product: product),
                           );
                         },
                         childCount: state.data.products.length,

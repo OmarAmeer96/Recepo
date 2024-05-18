@@ -33,7 +33,7 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<UpdateUserProfileCubit>(
       () => UpdateUserProfileCubit(getIt()));
 
-  // Products
+  // Products Repo & Cubit
   getIt.registerLazySingleton<ProductsRepo>(() => ProductsRepo(getIt()));
   getIt.registerFactory<ProductsCubit>(() => ProductsCubit(getIt()));
 }

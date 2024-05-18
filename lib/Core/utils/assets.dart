@@ -22,6 +22,7 @@ class AssetsData {
       'assets/images/sliverPersistBackground.png';
   static const profileImage = 'assets/images/profileImage.png';
   static const threeDashSvg = 'assets/svgs/threeDashSvg.svg';
+  static const star = 'assets/svgs/Star.svg';
 
   // Profile
   static const takePhotoIcon = 'assets/svgs/takePhotoIcon.svg';

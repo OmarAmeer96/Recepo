@@ -9,11 +9,11 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:recepo/Core/shared_prefs/shared_prefs.dart';
 import 'package:recepo/Core/shared_prefs/shred_prefs_constants.dart';
 import 'package:recepo/Core/theming/styles.dart';
-import 'package:recepo/Core/utils/app_regex.dart';
 import 'package:recepo/Core/utils/assets.dart';
 import 'package:recepo/Core/utils/extensions.dart';
 import 'package:recepo/Core/utils/loaading_animation.dart';
 import 'package:recepo/Core/utils/setup_error_state.dart';
+import 'package:recepo/Core/utils/spacing.dart';
 import 'package:recepo/Core/widgets/custom_main_button.dart';
 import 'package:recepo/Core/widgets/custom_main_text_form_field.dart';
 import 'package:recepo/Core/widgets/image_picker_bottom_sheet.dart';
@@ -213,206 +213,57 @@ class _UserEditProfileViewState extends State<UserEditProfileView> {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 50,
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                'Full Name',
-                                style: Styles.font13GreyBold.copyWith(
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
+                            verticalSpace(50),
                             CustomMainTextFormField(
-                              labelText: 'Username',
+                              labelText: 'Full Name',
                               labelStyle: Styles.enabledTextFieldsLabelText,
                               isObscureText: false,
                               style: Styles.focusedTextFieldsLabelText,
-                              // controller:
-                              //     context.read<LoginCubit>().usernameController,
-                              validator: (value) {
-                                if (value!.isEmpty ||
-                                    !AppRegex.isEmailValid(value)) {
-                                  return 'Please enter your username';
-                                }
-                              },
+                              controller: context
+                                  .read<UpdateUserProfileCubit>()
+                                  .fullNameController,
+                              validator: (value) {},
                               prefixIcon: const Icon(Icons.person_outline),
                             ),
-                            /* 
-                              CustomMainTextFormField(
-                                onChanged: (data) {
-                                  fullName = data;
-                                },
-                                controller: context
-                                    .read<UpdateUserProfileCubit>()
-                                    .fullNameController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter a name.';
-                                  }
-                                  return null;
-                                },
-                                hintText: SharedPrefs.getString(key: kFullName) ==
-                                            null ||
-                                        SharedPrefs.getString(key: kFullName)!
-                                            .isEmpty
-                                    ? 'Enter Full Name'
-                                    : '${SharedPrefs.getString(key: kFullName)}',
-                                borderColor: const Color(0xFFA3A3A3),
-                                focusedBorderColor: const Color(0xff55433c),
-                                enabledBorderColor: const Color(0xFFA3A3A3),
-                                inputType: TextInputType.text,
-                                prefixIcon: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 12),
-                                  child: SvgPicture.asset(AssetsData.userName),
-                                ),
-                                obscureText: false,
-                              ), */
-                            const SizedBox(
-                              height: 10,
+                            verticalSpace(12),
+                            CustomMainTextFormField(
+                              keyboardType: TextInputType.number,
+                              labelText: 'Phone Number',
+                              labelStyle: Styles.enabledTextFieldsLabelText,
+                              isObscureText: false,
+                              style: Styles.focusedTextFieldsLabelText,
+                              controller: context
+                                  .read<UpdateUserProfileCubit>()
+                                  .phoneNumberController,
+                              validator: (value) {},
+                              prefixIcon: const Icon(Icons.phone),
                             ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                'Phone number',
-                                style: Styles.font13GreyBold.copyWith(
-                                  fontSize: 16,
-                                ),
-                              ),
+                            verticalSpace(12),
+                            CustomMainTextFormField(
+                              labelText: 'City',
+                              labelStyle: Styles.enabledTextFieldsLabelText,
+                              isObscureText: false,
+                              style: Styles.focusedTextFieldsLabelText,
+                              controller: context
+                                  .read<UpdateUserProfileCubit>()
+                                  .cityController,
+                              validator: (value) {},
+                              prefixIcon: const Icon(Icons.phone),
                             ),
-                            const SizedBox(
-                              height: 5,
+                            verticalSpace(12),
+                            CustomMainTextFormField(
+                              keyboardType: TextInputType.number,
+                              labelText: 'National ID',
+                              labelStyle: Styles.enabledTextFieldsLabelText,
+                              isObscureText: false,
+                              style: Styles.focusedTextFieldsLabelText,
+                              controller: context
+                                  .read<UpdateUserProfileCubit>()
+                                  .nationalIdController,
+                              validator: (value) {},
+                              prefixIcon: const Icon(Icons.phone),
                             ),
-                            // CustomMainTextFormField(
-                            //   onChanged: (data) {
-                            //     phoneNumber = data;
-                            //   },
-                            //   controller: context
-                            //       .read<UpdateUserProfileCubit>()
-                            //       .phoneNumberController,
-                            //   validator: (value) {
-                            //     if (value == null || value.isEmpty) {
-                            //       return 'Please enter a password.';
-                            //     }
-                            //     return null;
-                            //   },
-                            //   hintText:
-                            //       SharedPrefs.getString(key: kPhone) == null ||
-                            //               SharedPrefs.getString(key: kPhone)!
-                            //                   .isEmpty
-                            //           ? 'Input phone number'
-                            //           : '${SharedPrefs.getString(key: kPhone)}',
-                            //   borderColor: const Color(0xFFA3A3A3),
-                            //   focusedBorderColor: const Color(0xff55433c),
-                            //   enabledBorderColor: const Color(0xFFA3A3A3),
-                            //   inputType: TextInputType.phone,
-                            //   prefixIcon: Padding(
-                            //     padding:
-                            //         const EdgeInsets.symmetric(vertical: 12),
-                            //     child: SvgPicture.asset(AssetsData.phoneIcon),
-                            //   ),
-                            //   obscureText: false,
-                            // ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                'City',
-                                style: Styles.font13GreyBold.copyWith(
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            // CustomMainTextFormField(
-                            //   onChanged: (data) {
-                            //     city = data;
-                            //   },
-                            //   controller: context
-                            //       .read<UpdateUserProfileCubit>()
-                            //       .cityController,
-                            //   validator: (value) {
-                            //     if (value == null || value.isEmpty) {
-                            //       return 'Please enter a name.';
-                            //     }
-                            //     return null;
-                            //   },
-                            //   hintText: SharedPrefs.getString(key: kCity) ==
-                            //               null ||
-                            //           SharedPrefs.getString(key: kCity)!.isEmpty
-                            //       ? 'Enter City'
-                            //       : '${SharedPrefs.getString(key: kCity)}',
-                            //   borderColor: const Color(0xFFA3A3A3),
-                            //   focusedBorderColor: const Color(0xff55433c),
-                            //   enabledBorderColor: const Color(0xFFA3A3A3),
-                            //   inputType: TextInputType.text,
-                            //   prefixIcon: Padding(
-                            //     padding:
-                            //         const EdgeInsets.symmetric(vertical: 12),
-                            //     child: SvgPicture.asset(AssetsData.citySvg),
-                            //   ),
-                            //   obscureText: false,
-                            // ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                'National ID',
-                                style: Styles.font13GreyBold.copyWith(
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            // CustomMainTextFormField(
-                            //   onChanged: (data) {
-                            //     nationalId = data;
-                            //   },
-                            //   controller: context
-                            //       .read<UpdateUserProfileCubit>()
-                            //       .nationalIdController,
-                            //   validator: (value) {
-                            //     if (value == null || value.isEmpty) {
-                            //       return 'Please enter the national ID.';
-                            //     }
-                            //     return null;
-                            //   },
-                            //   hintText: SharedPrefs.getString(
-                            //                   key: kNationalId) ==
-                            //               null ||
-                            //           SharedPrefs.getString(key: kNationalId)!
-                            //               .isEmpty
-                            //       ? 'Enter National ID'
-                            //       : '${SharedPrefs.getString(key: kNationalId)}',
-                            //   borderColor: const Color(0xFFA3A3A3),
-                            //   focusedBorderColor: const Color(0xff55433c),
-                            //   enabledBorderColor: const Color(0xFFA3A3A3),
-                            //   inputType: TextInputType.number,
-                            //   prefixIcon: Padding(
-                            //     padding:
-                            //         const EdgeInsets.symmetric(vertical: 12),
-                            //     child:
-                            //         SvgPicture.asset(AssetsData.naionalIdSvg),
-                            //   ),
-                            //   obscureText: false,
-                            // ),
-                            const SizedBox(
-                              height: 20,
-                            ),
+                            verticalSpace(50),
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 16),
@@ -426,19 +277,7 @@ class _UserEditProfileViewState extends State<UserEditProfileView> {
                                         .emitUpdateProfileState();
                                   },
                                 ),
-                                /* CustomMainButton(
-                                    text: "Save Changes",
-                                    onPressed: () {
-                                      BlocProvider.of<UpdateUserProfileCubit>(
-                                              context)
-                                          .emitUpdateProfileState();
-                                    },
-                                    color: kPrimaryColor,
-                                  ), */
                               ),
-                            ),
-                            const SizedBox(
-                              height: 20,
                             ),
                           ],
                         ),

@@ -19,6 +19,7 @@ class CustomMainTextFormField extends StatelessWidget {
     this.fillColor,
     this.controller,
     required this.validator,
+    this.keyboardType,
   });
 
   final EdgeInsetsGeometry? contentPadding;
@@ -34,10 +35,12 @@ class CustomMainTextFormField extends StatelessWidget {
   final Color? fillColor;
   final TextEditingController? controller;
   final Function(String?) validator;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboardType ?? TextInputType.text,
       controller: controller,
       decoration: InputDecoration(
         isDense: true,
