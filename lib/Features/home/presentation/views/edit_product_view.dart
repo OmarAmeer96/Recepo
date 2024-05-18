@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:recepo/Core/theming/colors_manager.dart';
+import 'package:recepo/Core/theming/font_family_helper.dart';
+import 'package:recepo/Core/theming/styles.dart';
+import 'package:recepo/Core/utils/extensions.dart';
 import 'package:recepo/Features/home/data/models/products_model.dart';
 
 class EditProductView extends StatelessWidget {
   final Product? product;
 
-  const EditProductView({Key? key, this.product}) : super(key: key);
+  const EditProductView({super.key, this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,26 @@ class EditProductView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Edit Product'),
+        title: Text(
+          'Edit Profile',
+          style: Styles.font32BlueBold.copyWith(
+            fontSize: 18.sp,
+            color: ColorsManager.subPrimaryColor,
+            fontFamily: FontFamilyHelper.regular,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            context.pop();
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

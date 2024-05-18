@@ -7,4 +7,5 @@ class Routes {
   static const String homeView = '/homeView';
   static const String userEditProfileView = '/userEditProfileView';
   static const String editProductView = '/editProductView';
+  static const String productDetailsView = '/productDetailsView';
 }

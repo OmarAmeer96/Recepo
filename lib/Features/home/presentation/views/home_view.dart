@@ -255,7 +255,16 @@ class _HomeViewState extends State<HomeView> {
                               child: Hero(
                                 tag:
                                     "edit_product_view_to_product_item_${product.id}",
-                                child: ProductItem(product: product),
+                                child: InkWell(
+                                  borderRadius: BorderRadius.circular(8),
+                                  onTap: () {
+                                    context.pushNamed(
+                                      Routes.productDetailsView,
+                                      arguments: product,
+                                    );
+                                  },
+                                  child: ProductItem(product: product),
+                                ),
                               ),
                             ),
                           );

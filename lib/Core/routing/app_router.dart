@@ -7,6 +7,7 @@ import 'package:recepo/Core/shared_prefs/shred_prefs_constants.dart';
 import 'package:recepo/Features/home/data/models/products_model.dart'; // Import Product model
 import 'package:recepo/Features/home/presentation/views/edit_product_view.dart';
 import 'package:recepo/Features/home/presentation/views/home_view.dart';
+import 'package:recepo/Features/home/presentation/views/product_details_view.dart';
 import 'package:recepo/Features/login/presentation/login_view.dart';
 import 'package:recepo/Features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:recepo/Features/profile/logic/update_user_profile_cubit/update_user_profile_cubit.dart';
@@ -69,6 +70,13 @@ class AppRouter {
           builder: (_) {
             final product = arguments as Product?;
             return EditProductView(product: product);
+          },
+        );
+      case Routes.productDetailsView:
+        return MaterialPageRoute(
+          builder: (_) {
+            final product = arguments as Product?;
+            return ProductDetailsView(product: product);
           },
         );
       default:

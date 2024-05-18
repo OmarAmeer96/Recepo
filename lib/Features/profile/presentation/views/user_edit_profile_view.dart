@@ -3,11 +3,14 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:recepo/Core/shared_prefs/shared_prefs.dart';
 import 'package:recepo/Core/shared_prefs/shred_prefs_constants.dart';
+import 'package:recepo/Core/theming/colors_manager.dart';
+import 'package:recepo/Core/theming/font_family_helper.dart';
 import 'package:recepo/Core/theming/styles.dart';
 import 'package:recepo/Core/utils/assets.dart';
 import 'package:recepo/Core/utils/extensions.dart';
@@ -42,8 +45,10 @@ class _UserEditProfileViewState extends State<UserEditProfileView> {
       appBar: AppBar(
         title: Text(
           'Edit Profile',
-          style: Styles.font13GreyBold.copyWith(
-            fontSize: 20,
+          style: Styles.font32BlueBold.copyWith(
+            fontSize: 18.sp,
+            color: ColorsManager.subPrimaryColor,
+            fontFamily: FontFamilyHelper.regular,
           ),
         ),
         centerTitle: true,
