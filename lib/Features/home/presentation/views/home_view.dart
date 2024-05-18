@@ -100,77 +100,105 @@ class _HomeViewState extends State<HomeView> {
                           addNewProductBottomSheet(
                             context,
                             myWidget: Padding(
-                              padding: const EdgeInsets.all(12),
-                              child: Column(
-                                children: [
-                                  CustomMainTextFormField(
-                                    keyboardType: TextInputType.text,
-                                    labelText: 'Product Name',
-                                    labelStyle:
-                                        Styles.enabledTextFieldsLabelText,
-                                    isObscureText: false,
-                                    style: Styles.focusedTextFieldsLabelText,
-                                    controller: context
-                                        .read<ProductsCubit>()
-                                        .addProductNameController,
-                                    validator: (value) {},
-                                    prefixIcon: const Icon(Icons.shopping_bag),
-                                  ),
-                                  verticalSpace(16),
-                                  CustomMainTextFormField(
-                                    keyboardType: TextInputType.text,
-                                    labelText: 'Product Description',
-                                    labelStyle:
-                                        Styles.enabledTextFieldsLabelText,
-                                    isObscureText: false,
-                                    style: Styles.focusedTextFieldsLabelText,
-                                    controller: context
-                                        .read<ProductsCubit>()
-                                        .addProductDescriptionController,
-                                    validator: (value) {},
-                                    prefixIcon: const Icon(Icons.description),
-                                  ),
-                                  verticalSpace(16),
-                                  CustomMainTextFormField(
-                                    keyboardType: TextInputType.number,
-                                    labelText: 'Product Price',
-                                    labelStyle:
-                                        Styles.enabledTextFieldsLabelText,
-                                    isObscureText: false,
-                                    style: Styles.focusedTextFieldsLabelText,
-                                    controller: context
-                                        .read<ProductsCubit>()
-                                        .addProductPriceController,
-                                    validator: (value) {},
-                                    prefixIcon: const Icon(Icons.money),
-                                  ),
-                                  verticalSpace(16),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16),
-                                    child: Hero(
-                                      tag: 'profile_picture',
-                                      child: CustomMainButton(
-                                        buttonText: "Save Changes",
-                                        onPressed: () {
-                                          BlocProvider.of<ProductsCubit>(
-                                                  context)
-                                              .addProduct();
-                                          context.pop();
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            const SnackBar(
-                                              content: Text(
-                                                "Product aded successfully.",
-                                              ),
-                                              duration: Duration(seconds: 3),
-                                            ),
-                                          );
-                                        },
+                              padding: const EdgeInsets.all(12.0),
+                              child: Form(
+                                key: context
+                                    .read<ProductsCubit>()
+                                    .addProductFormKey,
+                                child: Column(
+                                  children: [
+                                    CustomMainTextFormField(
+                                      keyboardType: TextInputType.text,
+                                      labelText: 'Product Name',
+                                      labelStyle:
+                                          Styles.enabledTextFieldsLabelText,
+                                      isObscureText: false,
+                                      style: Styles.focusedTextFieldsLabelText,
+                                      controller: context
+                                          .read<ProductsCubit>()
+                                          .addProductNameController,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Please enter a product name';
+                                        }
+                                        return null;
+                                      },
+                                      prefixIcon:
+                                          const Icon(Icons.shopping_bag),
+                                    ),
+                                    verticalSpace(16),
+                                    CustomMainTextFormField(
+                                      keyboardType: TextInputType.text,
+                                      labelText: 'Product Description',
+                                      labelStyle:
+                                          Styles.enabledTextFieldsLabelText,
+                                      isObscureText: false,
+                                      style: Styles.focusedTextFieldsLabelText,
+                                      controller: context
+                                          .read<ProductsCubit>()
+                                          .addProductDescriptionController,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Please enter a product description';
+                                        }
+                                        return null;
+                                      },
+                                      prefixIcon: const Icon(Icons.description),
+                                    ),
+                                    verticalSpace(16),
+                                    CustomMainTextFormField(
+                                      keyboardType: TextInputType.number,
+                                      labelText: 'Product Price',
+                                      labelStyle:
+                                          Styles.enabledTextFieldsLabelText,
+                                      isObscureText: false,
+                                      style: Styles.focusedTextFieldsLabelText,
+                                      controller: context
+                                          .read<ProductsCubit>()
+                                          .addProductPriceController,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Please enter a product price';
+                                        }
+                                        return null;
+                                      },
+                                      prefixIcon: const Icon(Icons.money),
+                                    ),
+                                    verticalSpace(30),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 16),
+                                      child: Hero(
+                                        tag: 'profile_picture',
+                                        child: CustomMainButton(
+                                          buttonText: "Save Changes",
+                                          onPressed: () {
+                                            if (context
+                                                .read<ProductsCubit>()
+                                                .addProductFormKey
+                                                .currentState!
+                                                .validate()) {
+                                              BlocProvider.of<ProductsCubit>(
+                                                      context)
+                                                  .addProduct();
+                                              context.pop();
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                const SnackBar(
+                                                  content: Text(
+                                                    "Product added successfully.",
+                                                  ),
+                                                  duration:
+                                                      Duration(seconds: 3),
+                                                ),
+                                              );
+                                            }
+                                          },
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           );

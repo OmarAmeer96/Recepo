@@ -11,6 +11,7 @@ class ProductsCubit extends Cubit<ProductsState> {
   String currentQuery = '';
 
   final formKey = GlobalKey<FormState>();
+  final addProductFormKey = GlobalKey<FormState>();
   TextEditingController productNameController = TextEditingController();
   TextEditingController productPriceController = TextEditingController();
   TextEditingController productDescriptionController = TextEditingController();
