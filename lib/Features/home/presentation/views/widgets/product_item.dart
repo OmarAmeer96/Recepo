@@ -148,8 +148,6 @@ class CustomProductImage extends StatelessWidget {
         placeholder: (context, url) {
           return CustomFadingWidget(
             child: SizedBox(
-              width: 160.w,
-              height: 100.h,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[700],

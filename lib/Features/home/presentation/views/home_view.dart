@@ -8,14 +8,17 @@ import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/shared_prefs/shared_prefs.dart';
 import 'package:recepo/Core/shared_prefs/shred_prefs_constants.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
+import 'package:recepo/Core/theming/styles.dart';
 import 'package:recepo/Core/utils/assets.dart';
 import 'package:recepo/Core/utils/extensions.dart';
+import 'package:recepo/Core/utils/spacing.dart';
 import 'package:recepo/Core/widgets/custom_fading_widget.dart';
 import 'package:recepo/Features/home/logic/product_cubit/products_cubit.dart';
 import 'package:recepo/Features/home/logic/product_cubit/products_state.dart';
 import 'package:recepo/Features/home/presentation/views/widgets/custom_product_item_loading_widget.dart';
 import 'package:recepo/Features/home/presentation/views/widgets/custom_search_text_field.dart';
 import 'package:recepo/Features/home/presentation/views/widgets/product_item.dart';
+import 'package:recepo/Features/home/presentation/views/widgets/delete_product_confirmation_button.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
 
 class HomeView extends StatefulWidget {
@@ -50,9 +53,12 @@ class _HomeViewState extends State<HomeView> {
     super.dispose();
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: GestureDetector(
         onTap: () {
           FocusScope.of(context).unfocus();
@@ -223,11 +229,8 @@ class _HomeViewState extends State<HomeView> {
                                       bottomLeft: Radius.circular(10),
                                     ),
                                     onPressed: (BuildContext context) {
-                                      context
-                                          .read<ProductsCubit>()
-                                          .deleteProduct(
-                                            product.id!,
-                                          );
+                                      showDeleteConfirmationDialog(
+                                          context, product);
                                     },
                                     backgroundColor: const Color(0xFFFE4A49),
                                     foregroundColor: Colors.white,
@@ -294,6 +297,52 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
       ),
+    );
+  }
+
+  Future<dynamic> showDeleteConfirmationDialog(BuildContext context, product) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+          ),
+          title: Text(
+            textAlign: TextAlign.center,
+            "Are you sure to delete this product?",
+            style: Styles.enabledTextFieldsLabelText.copyWith(fontSize: 19),
+          ),
+          actions: [
+            Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  verticalSpace(10),
+                  DeleteProductConfirmationButton(
+                    text: 'Yes',
+                    onPressed: () {
+                      context.read<ProductsCubit>().deleteProduct(
+                            product.id!,
+                          );
+                      context.pop();
+                    },
+                    color: const Color(0xFF1D272F),
+                  ),
+                  DeleteProductConfirmationButton(
+                    text: 'No',
+                    onPressed: () {
+                      context.pop();
+                    },
+                    color: ColorsManager.primaryColor,
+                  ),
+                ],
+              ),
+            )
+          ],
+        );
+      },
     );
   }
 }
