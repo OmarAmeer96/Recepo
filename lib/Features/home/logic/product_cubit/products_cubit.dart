@@ -65,6 +65,23 @@ class ProductsCubit extends Cubit<ProductsState> {
     );
   }
 
+  void deleteProduct(int id) async {
+    final response = await _productsRepo.deleteProduct(id);
+    response.when(
+      success: (productsModelResponse) {
+        final products = (state as ProductsFetched).data.products;
+        final newProducts =
+            products.where((element) => element.id != id).toList();
+        emit(ProductsState.productsFetched(
+            productsModelResponse.copyWith(products: newProducts)));
+      },
+      failure: (error) {
+        emit(ProductsState.error(
+            error: error.apiErrorModel.message ?? 'Something went wrong!'));
+      },
+    );
+  }
+
   void clearSearch() {
     currentQuery = '';
     _skip = 0;

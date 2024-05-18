@@ -63,10 +63,9 @@ abstract class ApiService {
     @Query('skip') required int skip,
   });
 
-  // // Delete Product
-  // @DELETE("https://dummyjson.com/products/{id}")
-  // Future<DeleteProductResponse> deleteProduct({
-  //   @Header('Authorization') required String token,
-  //   @Path('id') required int id,
-  // });
+  // Delete Product
+  @DELETE("https://dummyjson.com/products/{id}")
+  Future<ProductsModel> deleteProduct({
+    @Path('id') required int id,
+  });
 }

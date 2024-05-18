@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/shared_prefs/shared_prefs.dart';
@@ -204,7 +205,50 @@ class _HomeViewState extends State<HomeView> {
                               horizontal: 12.w,
                               vertical: 8.h,
                             ),
-                            child: ProductItem(product: product),
+                            child: Slidable(
+                              key: ValueKey(product.id),
+                              startActionPane: ActionPane(
+                                motion: const ScrollMotion(),
+                                dismissible: DismissiblePane(
+                                  onDismissed: () {
+                                    context.read<ProductsCubit>().deleteProduct(
+                                          product.id!,
+                                        );
+                                  },
+                                ),
+                                children: [
+                                  SlidableAction(
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      bottomLeft: Radius.circular(10),
+                                    ),
+                                    onPressed: (BuildContext context) {
+                                      context
+                                          .read<ProductsCubit>()
+                                          .deleteProduct(
+                                            product.id!,
+                                          );
+                                    },
+                                    backgroundColor: const Color(0xFFFE4A49),
+                                    foregroundColor: Colors.white,
+                                    icon: Icons.delete,
+                                    label: 'Delete',
+                                  ),
+                                  SlidableAction(
+                                    borderRadius: const BorderRadius.only(
+                                      topRight: Radius.circular(0),
+                                      bottomRight: Radius.circular(0),
+                                    ),
+                                    onPressed: (BuildContext context) {},
+                                    backgroundColor: const Color(0xFF21B7CA),
+                                    foregroundColor: Colors.white,
+                                    icon: Icons.edit,
+                                    label: 'Edit',
+                                  ),
+                                ],
+                              ),
+                              child: ProductItem(product: product),
+                            ),
                           );
                         },
                         childCount: state.data.products!.length,
