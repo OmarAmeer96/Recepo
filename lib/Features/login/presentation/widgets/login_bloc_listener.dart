@@ -18,9 +18,9 @@ class LoginBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listenWhen: (previous, current) =>
-          current is Loading ||
+          current is LoginLoading ||
           current is Success ||
-          current is Error ||
+          current is LoginError ||
           current is GetUserProfileSuccess,
       listener: (context, state) {
         state.whenOrNull(

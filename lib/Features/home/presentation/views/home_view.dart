@@ -22,6 +22,7 @@ import 'package:recepo/Features/home/presentation/views/widgets/custom_search_te
 import 'package:recepo/Features/home/presentation/views/widgets/product_item.dart';
 import 'package:recepo/Features/home/presentation/views/widgets/delete_product_confirmation_button.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
+import 'package:recepo/Features/login/logic/login_cubit/login_state.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -205,17 +206,19 @@ class _HomeViewState extends State<HomeView> {
                         },
                       ),
                       SvgPicture.asset(AssetsData.appLogo1Svg),
-                      GestureDetector(
-                        onTap: () {
-                          context.pushNamed(Routes.userEditProfileView);
-                        },
-                        child: Hero(
-                          tag: 'profile_picture',
-                          child: SizedBox(
-                            height: 50,
-                            width: 50,
-                            child:
-                                SharedPrefs.getString(key: kProfilePhotoURL) !=
+                      BlocBuilder<LoginCubit, LoginState>(
+                        builder: (context, state) {
+                          return GestureDetector(
+                            onTap: () {
+                              context.pushNamed(Routes.userEditProfileView);
+                            },
+                            child: Hero(
+                              tag: 'profile_picture',
+                              child: SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: SharedPrefs.getString(
+                                            key: kProfilePhotoURL) !=
                                         null
                                     ? ClipOval(
                                         child: CachedNetworkImage(
@@ -234,8 +237,10 @@ class _HomeViewState extends State<HomeView> {
                                           AssetsData.profileImage,
                                         ),
                                       ),
-                          ),
-                        ),
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),
