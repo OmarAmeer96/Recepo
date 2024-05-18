@@ -278,7 +278,9 @@ class _HomeViewState extends State<HomeView> {
                     return SliverToBoxAdapter(
                       child: Center(child: Text(state.error)),
                     );
-                  } else if (state is ProductsFetched || state is SuccessAdd) {
+                  } else if (state is ProductsFetched ||
+                      state is SuccessAdd ||
+                      state is SuccessUpdate) {
                     return SliverList(
                       delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {

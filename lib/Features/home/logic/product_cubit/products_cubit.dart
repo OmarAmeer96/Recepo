@@ -110,8 +110,8 @@ class ProductsCubit extends Cubit<ProductsState> {
         }
       },
       failure: (error) {
-        emit(ProductsState.error(
-            error: error.apiErrorModel.message ?? 'Something went wrong!'));
+        // emit(ProductsState.error(
+        //     error: error.apiErrorModel.message ?? 'Something went wrong!'));
       },
     );
   }
