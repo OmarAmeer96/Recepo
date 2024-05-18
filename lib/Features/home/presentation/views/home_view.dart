@@ -240,10 +240,11 @@ class _HomeViewState extends State<HomeView> {
                                       bottomRight: Radius.circular(0),
                                     ),
                                     onPressed: (BuildContext context) {
-                                      context.pushNamed(
-                                        Routes.editProductView,
-                                        arguments: product,
-                                      );
+                                      // There is an error from the API Server.
+                                      // context.pushNamed(
+                                      //   Routes.editProductView,
+                                      //   arguments: product,
+                                      // );
                                     },
                                     backgroundColor: const Color(0xFF21B7CA),
                                     foregroundColor: Colors.white,

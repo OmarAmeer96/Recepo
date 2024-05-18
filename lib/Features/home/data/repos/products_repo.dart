@@ -52,4 +52,23 @@ class ProductsRepo {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
+  Future<ApiResult<Product>> updateProduct(
+    int id,
+    String title,
+    double price,
+    String description,
+  ) async {
+    try {
+      final response = await _apiService.updateProduct(
+        id: id,
+        title: title,
+        price: price,
+        description: description,
+      );
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
 }

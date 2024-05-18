@@ -68,7 +68,9 @@ abstract class ApiService {
   @PUT("https://dummyjson.com/products/{id}")
   Future<Product> updateProduct({
     @Path('id') required int id,
-    @Body() required Product productsModel,
+    @Part(name: "title") required String title,
+    @Part(name: "description") required String description,
+    @Part(name: "price") required double price,
   });
 
   // Delete Product

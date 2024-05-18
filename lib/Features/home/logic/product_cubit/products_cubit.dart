@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recepo/Features/home/data/repos/products_repo.dart';
 import 'package:recepo/Features/home/logic/product_cubit/products_state.dart';
@@ -8,6 +9,11 @@ class ProductsCubit extends Cubit<ProductsState> {
   final int _limit = 10;
   bool hasReachedEnd = false;
   String currentQuery = '';
+
+  final formKey = GlobalKey<FormState>();
+  TextEditingController productNameController = TextEditingController();
+  TextEditingController productPriceController = TextEditingController();
+  TextEditingController productDescriptionController = TextEditingController();
 
   ProductsCubit(this._productsRepo) : super(const ProductsState.initial());
 
@@ -74,6 +80,29 @@ class ProductsCubit extends Cubit<ProductsState> {
             products.where((element) => element.id != id).toList();
         emit(ProductsState.productsFetched(
             productsModelResponse.copyWith(products: newProducts)));
+      },
+      failure: (error) {
+        emit(ProductsState.error(
+            error: error.apiErrorModel.message ?? 'Something went wrong!'));
+      },
+    );
+  }
+
+  void emitUpdateProductState(int productId) async {
+    // if (!formKey.currentState!.validate()) return;
+
+    emit(const ProductsState.loading());
+    final response = await _productsRepo.updateProduct(
+      productId,
+      productNameController.text,
+      double.parse(productPriceController.text),
+      productDescriptionController.text,
+    );
+    response.when(
+      success: (updateProductResponse) async {
+        {
+          emit(ProductsState.successUpdate(updateProductResponse));
+        }
       },
       failure: (error) {
         emit(ProductsState.error(

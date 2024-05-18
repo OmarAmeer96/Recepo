@@ -22,6 +22,7 @@ mixin _$ProductsState<T> {
     required TResult Function() loading,
     required TResult Function(T data) productsFetched,
     required TResult Function(T data) successAdd,
+    required TResult Function(T data) successUpdate,
     required TResult Function(T data) successDelete,
     required TResult Function(String error) error,
   }) =>
@@ -32,6 +33,7 @@ mixin _$ProductsState<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? productsFetched,
     TResult? Function(T data)? successAdd,
+    TResult? Function(T data)? successUpdate,
     TResult? Function(T data)? successDelete,
     TResult? Function(String error)? error,
   }) =>
@@ -42,6 +44,7 @@ mixin _$ProductsState<T> {
     TResult Function()? loading,
     TResult Function(T data)? productsFetched,
     TResult Function(T data)? successAdd,
+    TResult Function(T data)? successUpdate,
     TResult Function(T data)? successDelete,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -53,6 +56,7 @@ mixin _$ProductsState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
+    required TResult Function(SuccessUpdate<T> value) successUpdate,
     required TResult Function(SuccessDelete<T> value) successDelete,
     required TResult Function(Error<T> value) error,
   }) =>
@@ -63,6 +67,7 @@ mixin _$ProductsState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
+    TResult? Function(SuccessUpdate<T> value)? successUpdate,
     TResult? Function(SuccessDelete<T> value)? successDelete,
     TResult? Function(Error<T> value)? error,
   }) =>
@@ -73,6 +78,7 @@ mixin _$ProductsState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
+    TResult Function(SuccessUpdate<T> value)? successUpdate,
     TResult Function(SuccessDelete<T> value)? successDelete,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -140,6 +146,7 @@ class _$InitialImpl<T> implements Initial<T> {
     required TResult Function() loading,
     required TResult Function(T data) productsFetched,
     required TResult Function(T data) successAdd,
+    required TResult Function(T data) successUpdate,
     required TResult Function(T data) successDelete,
     required TResult Function(String error) error,
   }) {
@@ -153,6 +160,7 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? productsFetched,
     TResult? Function(T data)? successAdd,
+    TResult? Function(T data)? successUpdate,
     TResult? Function(T data)? successDelete,
     TResult? Function(String error)? error,
   }) {
@@ -166,6 +174,7 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult Function()? loading,
     TResult Function(T data)? productsFetched,
     TResult Function(T data)? successAdd,
+    TResult Function(T data)? successUpdate,
     TResult Function(T data)? successDelete,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -183,6 +192,7 @@ class _$InitialImpl<T> implements Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
+    required TResult Function(SuccessUpdate<T> value) successUpdate,
     required TResult Function(SuccessDelete<T> value) successDelete,
     required TResult Function(Error<T> value) error,
   }) {
@@ -196,6 +206,7 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
+    TResult? Function(SuccessUpdate<T> value)? successUpdate,
     TResult? Function(SuccessDelete<T> value)? successDelete,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -209,6 +220,7 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
+    TResult Function(SuccessUpdate<T> value)? successUpdate,
     TResult Function(SuccessDelete<T> value)? successDelete,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -266,6 +278,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(T data) productsFetched,
     required TResult Function(T data) successAdd,
+    required TResult Function(T data) successUpdate,
     required TResult Function(T data) successDelete,
     required TResult Function(String error) error,
   }) {
@@ -279,6 +292,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? productsFetched,
     TResult? Function(T data)? successAdd,
+    TResult? Function(T data)? successUpdate,
     TResult? Function(T data)? successDelete,
     TResult? Function(String error)? error,
   }) {
@@ -292,6 +306,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(T data)? productsFetched,
     TResult Function(T data)? successAdd,
+    TResult Function(T data)? successUpdate,
     TResult Function(T data)? successDelete,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -309,6 +324,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
+    required TResult Function(SuccessUpdate<T> value) successUpdate,
     required TResult Function(SuccessDelete<T> value) successDelete,
     required TResult Function(Error<T> value) error,
   }) {
@@ -322,6 +338,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
+    TResult? Function(SuccessUpdate<T> value)? successUpdate,
     TResult? Function(SuccessDelete<T> value)? successDelete,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -335,6 +352,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
+    TResult Function(SuccessUpdate<T> value)? successUpdate,
     TResult Function(SuccessDelete<T> value)? successDelete,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -420,6 +438,7 @@ class _$ProductsFetchedImpl<T> implements ProductsFetched<T> {
     required TResult Function() loading,
     required TResult Function(T data) productsFetched,
     required TResult Function(T data) successAdd,
+    required TResult Function(T data) successUpdate,
     required TResult Function(T data) successDelete,
     required TResult Function(String error) error,
   }) {
@@ -433,6 +452,7 @@ class _$ProductsFetchedImpl<T> implements ProductsFetched<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? productsFetched,
     TResult? Function(T data)? successAdd,
+    TResult? Function(T data)? successUpdate,
     TResult? Function(T data)? successDelete,
     TResult? Function(String error)? error,
   }) {
@@ -446,6 +466,7 @@ class _$ProductsFetchedImpl<T> implements ProductsFetched<T> {
     TResult Function()? loading,
     TResult Function(T data)? productsFetched,
     TResult Function(T data)? successAdd,
+    TResult Function(T data)? successUpdate,
     TResult Function(T data)? successDelete,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -463,6 +484,7 @@ class _$ProductsFetchedImpl<T> implements ProductsFetched<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
+    required TResult Function(SuccessUpdate<T> value) successUpdate,
     required TResult Function(SuccessDelete<T> value) successDelete,
     required TResult Function(Error<T> value) error,
   }) {
@@ -476,6 +498,7 @@ class _$ProductsFetchedImpl<T> implements ProductsFetched<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
+    TResult? Function(SuccessUpdate<T> value)? successUpdate,
     TResult? Function(SuccessDelete<T> value)? successDelete,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -489,6 +512,7 @@ class _$ProductsFetchedImpl<T> implements ProductsFetched<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
+    TResult Function(SuccessUpdate<T> value)? successUpdate,
     TResult Function(SuccessDelete<T> value)? successDelete,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -578,6 +602,7 @@ class _$SuccessAddImpl<T> implements SuccessAdd<T> {
     required TResult Function() loading,
     required TResult Function(T data) productsFetched,
     required TResult Function(T data) successAdd,
+    required TResult Function(T data) successUpdate,
     required TResult Function(T data) successDelete,
     required TResult Function(String error) error,
   }) {
@@ -591,6 +616,7 @@ class _$SuccessAddImpl<T> implements SuccessAdd<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? productsFetched,
     TResult? Function(T data)? successAdd,
+    TResult? Function(T data)? successUpdate,
     TResult? Function(T data)? successDelete,
     TResult? Function(String error)? error,
   }) {
@@ -604,6 +630,7 @@ class _$SuccessAddImpl<T> implements SuccessAdd<T> {
     TResult Function()? loading,
     TResult Function(T data)? productsFetched,
     TResult Function(T data)? successAdd,
+    TResult Function(T data)? successUpdate,
     TResult Function(T data)? successDelete,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -621,6 +648,7 @@ class _$SuccessAddImpl<T> implements SuccessAdd<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
+    required TResult Function(SuccessUpdate<T> value) successUpdate,
     required TResult Function(SuccessDelete<T> value) successDelete,
     required TResult Function(Error<T> value) error,
   }) {
@@ -634,6 +662,7 @@ class _$SuccessAddImpl<T> implements SuccessAdd<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
+    TResult? Function(SuccessUpdate<T> value)? successUpdate,
     TResult? Function(SuccessDelete<T> value)? successDelete,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -647,6 +676,7 @@ class _$SuccessAddImpl<T> implements SuccessAdd<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
+    TResult Function(SuccessUpdate<T> value)? successUpdate,
     TResult Function(SuccessDelete<T> value)? successDelete,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -664,6 +694,171 @@ abstract class SuccessAdd<T> implements ProductsState<T> {
   T get data;
   @JsonKey(ignore: true)
   _$$SuccessAddImplCopyWith<T, _$SuccessAddImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SuccessUpdateImplCopyWith<T, $Res> {
+  factory _$$SuccessUpdateImplCopyWith(_$SuccessUpdateImpl<T> value,
+          $Res Function(_$SuccessUpdateImpl<T>) then) =
+      __$$SuccessUpdateImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$SuccessUpdateImplCopyWithImpl<T, $Res>
+    extends _$ProductsStateCopyWithImpl<T, $Res, _$SuccessUpdateImpl<T>>
+    implements _$$SuccessUpdateImplCopyWith<T, $Res> {
+  __$$SuccessUpdateImplCopyWithImpl(_$SuccessUpdateImpl<T> _value,
+      $Res Function(_$SuccessUpdateImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$SuccessUpdateImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SuccessUpdateImpl<T> implements SuccessUpdate<T> {
+  const _$SuccessUpdateImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'ProductsState<$T>.successUpdate(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessUpdateImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessUpdateImplCopyWith<T, _$SuccessUpdateImpl<T>> get copyWith =>
+      __$$SuccessUpdateImplCopyWithImpl<T, _$SuccessUpdateImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) productsFetched,
+    required TResult Function(T data) successAdd,
+    required TResult Function(T data) successUpdate,
+    required TResult Function(T data) successDelete,
+    required TResult Function(String error) error,
+  }) {
+    return successUpdate(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? productsFetched,
+    TResult? Function(T data)? successAdd,
+    TResult? Function(T data)? successUpdate,
+    TResult? Function(T data)? successDelete,
+    TResult? Function(String error)? error,
+  }) {
+    return successUpdate?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? productsFetched,
+    TResult Function(T data)? successAdd,
+    TResult Function(T data)? successUpdate,
+    TResult Function(T data)? successDelete,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    if (successUpdate != null) {
+      return successUpdate(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(ProductsFetched<T> value) productsFetched,
+    required TResult Function(SuccessAdd<T> value) successAdd,
+    required TResult Function(SuccessUpdate<T> value) successUpdate,
+    required TResult Function(SuccessDelete<T> value) successDelete,
+    required TResult Function(Error<T> value) error,
+  }) {
+    return successUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(ProductsFetched<T> value)? productsFetched,
+    TResult? Function(SuccessAdd<T> value)? successAdd,
+    TResult? Function(SuccessUpdate<T> value)? successUpdate,
+    TResult? Function(SuccessDelete<T> value)? successDelete,
+    TResult? Function(Error<T> value)? error,
+  }) {
+    return successUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(ProductsFetched<T> value)? productsFetched,
+    TResult Function(SuccessAdd<T> value)? successAdd,
+    TResult Function(SuccessUpdate<T> value)? successUpdate,
+    TResult Function(SuccessDelete<T> value)? successDelete,
+    TResult Function(Error<T> value)? error,
+    required TResult orElse(),
+  }) {
+    if (successUpdate != null) {
+      return successUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SuccessUpdate<T> implements ProductsState<T> {
+  const factory SuccessUpdate(final T data) = _$SuccessUpdateImpl<T>;
+
+  T get data;
+  @JsonKey(ignore: true)
+  _$$SuccessUpdateImplCopyWith<T, _$SuccessUpdateImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -737,6 +932,7 @@ class _$SuccessDeleteImpl<T> implements SuccessDelete<T> {
     required TResult Function() loading,
     required TResult Function(T data) productsFetched,
     required TResult Function(T data) successAdd,
+    required TResult Function(T data) successUpdate,
     required TResult Function(T data) successDelete,
     required TResult Function(String error) error,
   }) {
@@ -750,6 +946,7 @@ class _$SuccessDeleteImpl<T> implements SuccessDelete<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? productsFetched,
     TResult? Function(T data)? successAdd,
+    TResult? Function(T data)? successUpdate,
     TResult? Function(T data)? successDelete,
     TResult? Function(String error)? error,
   }) {
@@ -763,6 +960,7 @@ class _$SuccessDeleteImpl<T> implements SuccessDelete<T> {
     TResult Function()? loading,
     TResult Function(T data)? productsFetched,
     TResult Function(T data)? successAdd,
+    TResult Function(T data)? successUpdate,
     TResult Function(T data)? successDelete,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -780,6 +978,7 @@ class _$SuccessDeleteImpl<T> implements SuccessDelete<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
+    required TResult Function(SuccessUpdate<T> value) successUpdate,
     required TResult Function(SuccessDelete<T> value) successDelete,
     required TResult Function(Error<T> value) error,
   }) {
@@ -793,6 +992,7 @@ class _$SuccessDeleteImpl<T> implements SuccessDelete<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
+    TResult? Function(SuccessUpdate<T> value)? successUpdate,
     TResult? Function(SuccessDelete<T> value)? successDelete,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -806,6 +1006,7 @@ class _$SuccessDeleteImpl<T> implements SuccessDelete<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
+    TResult Function(SuccessUpdate<T> value)? successUpdate,
     TResult Function(SuccessDelete<T> value)? successDelete,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -894,6 +1095,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(T data) productsFetched,
     required TResult Function(T data) successAdd,
+    required TResult Function(T data) successUpdate,
     required TResult Function(T data) successDelete,
     required TResult Function(String error) error,
   }) {
@@ -907,6 +1109,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? productsFetched,
     TResult? Function(T data)? successAdd,
+    TResult? Function(T data)? successUpdate,
     TResult? Function(T data)? successDelete,
     TResult? Function(String error)? error,
   }) {
@@ -920,6 +1123,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(T data)? productsFetched,
     TResult Function(T data)? successAdd,
+    TResult Function(T data)? successUpdate,
     TResult Function(T data)? successDelete,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -937,6 +1141,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(ProductsFetched<T> value) productsFetched,
     required TResult Function(SuccessAdd<T> value) successAdd,
+    required TResult Function(SuccessUpdate<T> value) successUpdate,
     required TResult Function(SuccessDelete<T> value) successDelete,
     required TResult Function(Error<T> value) error,
   }) {
@@ -950,6 +1155,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(ProductsFetched<T> value)? productsFetched,
     TResult? Function(SuccessAdd<T> value)? successAdd,
+    TResult? Function(SuccessUpdate<T> value)? successUpdate,
     TResult? Function(SuccessDelete<T> value)? successDelete,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -963,6 +1169,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(ProductsFetched<T> value)? productsFetched,
     TResult Function(SuccessAdd<T> value)? successAdd,
+    TResult Function(SuccessUpdate<T> value)? successUpdate,
     TResult Function(SuccessDelete<T> value)? successDelete,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),

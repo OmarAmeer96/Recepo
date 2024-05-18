@@ -260,12 +260,26 @@ class _ApiService implements ApiService {
   @override
   Future<Product> updateProduct({
     required int id,
-    required Product productsModel,
+    required String title,
+    required String description,
+    required double price,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = productsModel;
+    final _data = FormData();
+    _data.fields.add(MapEntry(
+      'title',
+      title,
+    ));
+    _data.fields.add(MapEntry(
+      'description',
+      description,
+    ));
+    _data.fields.add(MapEntry(
+      'price',
+      price.toString(),
+    ));
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<Product>(Options(
       method: 'PUT',
