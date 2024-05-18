@@ -64,8 +64,18 @@ abstract class ApiService {
     @Query('skip') required int skip,
   });
 
+  // Add Product
+  @POST("https://dummyjson.com/products/add")
+  @MultiPart()
+  Future<Product> addProduct({
+    @Part(name: "title") required String title,
+    @Part(name: "description") required String description,
+    @Part(name: "price") required double price,
+  });
+
   // Update Product
   @PUT("https://dummyjson.com/products/{id}")
+  @MultiPart()
   Future<Product> updateProduct({
     @Path('id') required int id,
     @Part(name: "title") required String title,

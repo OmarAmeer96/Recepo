@@ -8,11 +8,13 @@ import 'package:recepo/Core/routing/routes.dart';
 import 'package:recepo/Core/shared_prefs/shared_prefs.dart';
 import 'package:recepo/Core/shared_prefs/shred_prefs_constants.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
+import 'package:recepo/Core/theming/font_family_helper.dart';
 import 'package:recepo/Core/theming/styles.dart';
 import 'package:recepo/Core/utils/assets.dart';
 import 'package:recepo/Core/utils/extensions.dart';
-import 'package:recepo/Core/utils/spacing.dart';
 import 'package:recepo/Core/widgets/custom_fading_widget.dart';
+import 'package:recepo/Core/widgets/custom_main_button.dart';
+import 'package:recepo/Core/widgets/custom_main_text_form_field.dart';
 import 'package:recepo/Features/home/logic/product_cubit/products_cubit.dart';
 import 'package:recepo/Features/home/logic/product_cubit/products_state.dart';
 import 'package:recepo/Features/home/presentation/views/widgets/custom_product_item_loading_widget.dart';
@@ -94,7 +96,75 @@ class _HomeViewState extends State<HomeView> {
                     children: [
                       GestureDetector(
                         child: SvgPicture.asset(AssetsData.threeDashSvg),
-                        onTap: () {},
+                        onTap: () {
+                          addNewProductBottomSheet(
+                            context,
+                            myWidget: Padding(
+                              padding: const EdgeInsets.all(12),
+                              child: Column(
+                                children: [
+                                  CustomMainTextFormField(
+                                    keyboardType: TextInputType.text,
+                                    labelText: 'Product Name',
+                                    labelStyle:
+                                        Styles.enabledTextFieldsLabelText,
+                                    isObscureText: false,
+                                    style: Styles.focusedTextFieldsLabelText,
+                                    controller: context
+                                        .read<ProductsCubit>()
+                                        .addProductNameController,
+                                    validator: (value) {},
+                                    prefixIcon: const Icon(Icons.shopping_bag),
+                                  ),
+                                  verticalSpace(16),
+                                  CustomMainTextFormField(
+                                    keyboardType: TextInputType.text,
+                                    labelText: 'Product Description',
+                                    labelStyle:
+                                        Styles.enabledTextFieldsLabelText,
+                                    isObscureText: false,
+                                    style: Styles.focusedTextFieldsLabelText,
+                                    controller: context
+                                        .read<ProductsCubit>()
+                                        .addProductDescriptionController,
+                                    validator: (value) {},
+                                    prefixIcon: const Icon(Icons.description),
+                                  ),
+                                  verticalSpace(16),
+                                  CustomMainTextFormField(
+                                    keyboardType: TextInputType.number,
+                                    labelText: 'Product Price',
+                                    labelStyle:
+                                        Styles.enabledTextFieldsLabelText,
+                                    isObscureText: false,
+                                    style: Styles.focusedTextFieldsLabelText,
+                                    controller: context
+                                        .read<ProductsCubit>()
+                                        .addProductPriceController,
+                                    validator: (value) {},
+                                    prefixIcon: const Icon(Icons.money),
+                                  ),
+                                  verticalSpace(16),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 16),
+                                    child: Hero(
+                                      tag: 'profile_picture',
+                                      child: CustomMainButton(
+                                        buttonText: "Save Changes",
+                                        onPressed: () {
+                                          BlocProvider.of<ProductsCubit>(
+                                                  context)
+                                              .addProduct();
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
                       ),
                       SvgPicture.asset(AssetsData.appLogo1Svg),
                       GestureDetector(
@@ -168,9 +238,6 @@ class _HomeViewState extends State<HomeView> {
                           onChanged: (query) {
                             context.read<ProductsCubit>().searchProducts(query);
                           },
-                          // onClear: () {
-                          //   context.read<ProductsCubit>().clearSearch();
-                          // },
                         ),
                       ),
                     ),
@@ -298,6 +365,64 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
     );
+  }
+
+  Future<dynamic> addNewProductBottomSheet(BuildContext context,
+      {required Widget myWidget}) {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(40),
+          topRight: Radius.circular(40),
+        ),
+      ),
+      context: context,
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: SizedBox(
+            width: double.infinity,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: 60,
+                    height: 4,
+                    decoration: ShapeDecoration(
+                      color: const Color(0xFFA3A3A3),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                  verticalSpace(16),
+                  Text(
+                    'Add New Product',
+                    style: Styles.font32BlueBold.copyWith(
+                      fontSize: 18.sp,
+                      color: ColorsManager.subPrimaryColor,
+                      fontFamily: FontFamilyHelper.bold,
+                    ),
+                  ),
+                  verticalSpace(16),
+                  myWidget,
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget verticalSpace(double height) {
+    return SizedBox(height: height);
   }
 
   Future<dynamic> showDeleteConfirmationDialog(BuildContext context, product) {

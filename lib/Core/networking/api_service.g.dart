@@ -258,6 +258,50 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<Product> addProduct({
+    required String title,
+    required String description,
+    required double price,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.fields.add(MapEntry(
+      'title',
+      title,
+    ));
+    _data.fields.add(MapEntry(
+      'description',
+      description,
+    ));
+    _data.fields.add(MapEntry(
+      'price',
+      price.toString(),
+    ));
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Product>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+            .compose(
+              _dio.options,
+              'https://dummyjson.com/products/add',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = Product.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<Product> updateProduct({
     required int id,
     required String title,
@@ -285,6 +329,7 @@ class _ApiService implements ApiService {
       method: 'PUT',
       headers: _headers,
       extra: _extra,
+      contentType: 'multipart/form-data',
     )
             .compose(
               _dio.options,

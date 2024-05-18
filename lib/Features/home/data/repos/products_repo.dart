@@ -71,4 +71,21 @@ class ProductsRepo {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
+  Future<ApiResult<Product>> addProduct(
+    String title,
+    String description,
+    double price,
+  ) async {
+    try {
+      final response = await _apiService.addProduct(
+        title: title,
+        description: description,
+        price: price,
+      );
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
 }

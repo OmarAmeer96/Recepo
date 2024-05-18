@@ -15,6 +15,11 @@ class ProductsCubit extends Cubit<ProductsState> {
   TextEditingController productPriceController = TextEditingController();
   TextEditingController productDescriptionController = TextEditingController();
 
+  TextEditingController addProductNameController = TextEditingController();
+  TextEditingController addProductDescriptionController =
+      TextEditingController();
+  TextEditingController addProductPriceController = TextEditingController();
+
   ProductsCubit(this._productsRepo) : super(const ProductsState.initial());
 
   void getProducts() async {
@@ -102,6 +107,28 @@ class ProductsCubit extends Cubit<ProductsState> {
       success: (updateProductResponse) async {
         {
           emit(ProductsState.successUpdate(updateProductResponse));
+        }
+      },
+      failure: (error) {
+        emit(ProductsState.error(
+            error: error.apiErrorModel.message ?? 'Something went wrong!'));
+      },
+    );
+  }
+
+  void addProduct() async {
+    // if (!formKey.currentState!.validate()) return;
+
+    emit(const ProductsState.loading());
+    final response = await _productsRepo.addProduct(
+      addProductNameController.text,
+      addProductDescriptionController.text,
+      double.parse(addProductPriceController.text),
+    );
+    response.when(
+      success: (addProductResponse) async {
+        {
+          emit(ProductsState.successAdd(addProductResponse));
         }
       },
       failure: (error) {
