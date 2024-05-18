@@ -117,9 +117,7 @@ class ProductsCubit extends Cubit<ProductsState> {
   }
 
   void addProduct() async {
-    // if (!formKey.currentState!.validate()) return;
-
-    emit(const ProductsState.loading());
+    // emit(const ProductsState.loading());
     final response = await _productsRepo.addProduct(
       addProductNameController.text,
       addProductDescriptionController.text,
@@ -127,13 +125,11 @@ class ProductsCubit extends Cubit<ProductsState> {
     );
     response.when(
       success: (addProductResponse) async {
-        {
-          emit(ProductsState.successAdd(addProductResponse));
-        }
+        emit(ProductsState.successAdd(addProductResponse));
       },
       failure: (error) {
-        emit(ProductsState.error(
-            error: error.apiErrorModel.message ?? 'Something went wrong!'));
+        // emit(ProductsState.error(
+        //     error: error.apiErrorModel.message ?? 'Something went wrong!'));
       },
     );
   }

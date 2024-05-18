@@ -156,6 +156,16 @@ class _HomeViewState extends State<HomeView> {
                                           BlocProvider.of<ProductsCubit>(
                                                   context)
                                               .addProduct();
+                                          context.pop();
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                              content: Text(
+                                                "Product aded successfully.",
+                                              ),
+                                              duration: Duration(seconds: 3),
+                                            ),
+                                          );
                                         },
                                       ),
                                     ),
@@ -268,11 +278,12 @@ class _HomeViewState extends State<HomeView> {
                     return SliverToBoxAdapter(
                       child: Center(child: Text(state.error)),
                     );
-                  } else if (state is ProductsFetched) {
+                  } else if (state is ProductsFetched || state is SuccessAdd) {
                     return SliverList(
                       delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
-                          final product = state.data.products![index];
+                          final product =
+                              (state as ProductsFetched).data.products![index];
                           return Padding(
                             padding: EdgeInsets.symmetric(
                               horizontal: 12.w,
@@ -297,7 +308,9 @@ class _HomeViewState extends State<HomeView> {
                                     ),
                                     onPressed: (BuildContext context) {
                                       showDeleteConfirmationDialog(
-                                          context, product);
+                                        context,
+                                        product,
+                                      );
                                     },
                                     backgroundColor: const Color(0xFFFE4A49),
                                     foregroundColor: Colors.white,
@@ -340,7 +353,9 @@ class _HomeViewState extends State<HomeView> {
                             ),
                           );
                         },
-                        childCount: state.data.products!.length,
+                        childCount: state is ProductsFetched
+                            ? state.data.products!.length
+                            : 0,
                       ),
                     );
                   } else {
