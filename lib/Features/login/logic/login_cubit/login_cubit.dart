@@ -63,7 +63,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> emitGetUserProfile() async {
-    emit(const LoginState.loading());
+    // emit(const LoginState.loading());
     final response = await _loginRepo.getUserProfile(
       SharedPrefs.getString(key: kToken)!,
       SharedPrefs.getInt(key: kUserId)!,

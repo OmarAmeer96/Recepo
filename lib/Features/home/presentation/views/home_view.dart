@@ -9,8 +9,10 @@ import 'package:recepo/Core/shared_prefs/shred_prefs_constants.dart';
 import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/utils/assets.dart';
 import 'package:recepo/Core/utils/extensions.dart';
+import 'package:recepo/Core/widgets/custom_fading_widget.dart';
 import 'package:recepo/Features/home/logic/product_cubit/products_cubit.dart';
 import 'package:recepo/Features/home/logic/product_cubit/products_state.dart';
+import 'package:recepo/Features/home/presentation/views/widgets/custom_product_item_loading_widget.dart';
 import 'package:recepo/Features/home/presentation/views/widgets/custom_search_text_field.dart';
 import 'package:recepo/Features/home/presentation/views/widgets/product_item.dart';
 import 'package:recepo/Features/login/logic/login_cubit/login_cubit.dart';
@@ -157,8 +159,21 @@ class _HomeViewState extends State<HomeView> {
               BlocBuilder<ProductsCubit, ProductsState>(
                 builder: (context, state) {
                   if (state is Loading) {
-                    return const SliverToBoxAdapter(
-                      child: Center(child: CircularProgressIndicator()),
+                    return SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (BuildContext context, int index) {
+                          return Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 12.w,
+                              vertical: 8.h,
+                            ),
+                            child: const CustomFadingWidget(
+                              child: ProductItemLoadingWidget(),
+                            ),
+                          );
+                        },
+                        childCount: 10,
+                      ),
                     );
                   } else if (state is Error) {
                     return SliverToBoxAdapter(

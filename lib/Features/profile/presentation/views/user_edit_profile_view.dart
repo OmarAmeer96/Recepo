@@ -248,7 +248,8 @@ class _UserEditProfileViewState extends State<UserEditProfileView> {
                                   .read<UpdateUserProfileCubit>()
                                   .cityController,
                               validator: (value) {},
-                              prefixIcon: const Icon(Icons.phone),
+                              prefixIcon:
+                                  const Icon(Icons.location_city_outlined),
                             ),
                             verticalSpace(12),
                             CustomMainTextFormField(
@@ -261,7 +262,8 @@ class _UserEditProfileViewState extends State<UserEditProfileView> {
                                   .read<UpdateUserProfileCubit>()
                                   .nationalIdController,
                               validator: (value) {},
-                              prefixIcon: const Icon(Icons.phone),
+                              prefixIcon:
+                                  const Icon(Icons.credit_card_outlined),
                             ),
                             verticalSpace(50),
                             Padding(

@@ -6,6 +6,7 @@ import 'package:recepo/Core/theming/colors_manager.dart';
 import 'package:recepo/Core/theming/styles.dart';
 import 'package:recepo/Core/utils/assets.dart';
 import 'package:recepo/Core/utils/spacing.dart';
+import 'package:recepo/Core/widgets/custom_fading_widget.dart';
 import 'package:recepo/Features/home/data/models/products_model.dart';
 
 class ProductItem extends StatelessWidget {
@@ -44,7 +45,7 @@ class ProductItem extends StatelessWidget {
                 verticalSpace(10.h),
                 Row(
                   children: [
-                    ProductBrandaItem(product: product),
+                    Flexible(child: ProductBrandaItem(product: product)),
                   ],
                 ),
               ],
@@ -106,28 +107,25 @@ class ProductBrandaItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: 8.w,
-            vertical: 4.h,
-          ),
-          decoration: BoxDecoration(
-            color: const Color(0xFFe2e2e2),
-            borderRadius: BorderRadius.circular(8.r),
-          ),
-          child: Text(
-            product.brand!,
-            style: Styles.onboardingTitleFont.copyWith(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w300,
-              color: ColorsManager.subPrimaryColor,
-            ),
-          ),
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: 8.w,
+        vertical: 4.h,
+      ),
+      decoration: BoxDecoration(
+        color: const Color(0xFFe2e2e2),
+        borderRadius: BorderRadius.circular(8.r),
+      ),
+      child: Text(
+        product.brand!,
+        style: Styles.onboardingTitleFont.copyWith(
+          fontSize: 12.sp,
+          fontWeight: FontWeight.w300,
+          color: ColorsManager.subPrimaryColor,
         ),
-      ],
+        overflow: TextOverflow.fade,
+        maxLines: 2,
+      ),
     );
   }
 }
@@ -147,9 +145,20 @@ class CustomProductImage extends StatelessWidget {
       child: CachedNetworkImage(
         fit: BoxFit.fill,
         imageUrl: product.thumbnail!,
-        placeholder: (context, url) => const Center(
-          child: CircularProgressIndicator(),
-        ),
+        placeholder: (context, url) {
+          return CustomFadingWidget(
+            child: SizedBox(
+              width: 160.w,
+              height: 100.h,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey[700],
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+              ),
+            ),
+          );
+        },
         errorWidget: (context, url, error) => const Icon(Icons.error),
       ),
     );
