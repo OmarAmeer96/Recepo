@@ -11,6 +11,8 @@
 <!-- 9. License -->
 
 ## Demo
+https://github.com/OmarAmeer96/Recepo/assets/93061060/610a494b-819b-40c4-9ed4-e170be3c88ac
+
 
 ## Introduction
 
@@ -57,18 +59,36 @@ This app uses several dependencies to enhance its functionality:
 
 ## Usage
 
-### User Authentication
+### Splash
+<img src="https://github.com/OmarAmeer96/Recepo/assets/93061060/84d4b57b-9dcf-40cf-bc90-9111d41a2ec3" width="400">
 
+### Onboarding
+<img src="https://github.com/OmarAmeer96/Recepo/assets/93061060/181edcee-3d23-469a-b361-5ecac9ccc2e1" width="400">
+
+### User Authentication
 Users can create accounts and log in to access personalized features.
 
-### Product Search
+<img src="https://github.com/OmarAmeer96/Recepo/assets/93061060/dcbba38a-d784-4fa1-85e6-7a3efef6eaa6" width="400">
+<img src="https://github.com/OmarAmeer96/Recepo/assets/93061060/e657955b-2b7e-46cb-ae24-3a293ed38cbd" width="400">
 
+### Product Search
 Users can search for specific products based on keywords or categories.
 
-### Product Details
+<img src="https://github.com/OmarAmeer96/Recepo/assets/93061060/eb5c22bd-2555-4906-a4f9-60cde4fa6034" width="400">
 
+### Product Details
 Users can view detailed information about each product, including images, descriptions, and prices.
 
-### Order Management
+<img src="https://github.com/OmarAmeer96/Recepo/assets/93061060/593771b3-5658-4f9a-894f-d52f86f5d749" width="400">
 
+### Order Management
 Users can view and manage their orders, including tracking the status of their deliveries.
+
+<img src="https://github.com/OmarAmeer96/Recepo/assets/93061060/1630b7e9-6bee-4b50-8162-69b4e8e3973e" width="400">
+<img src="https://github.com/OmarAmeer96/Recepo/assets/93061060/60d4270e-37e4-4e13-9999-dfde629d1839" width="400">
+
+### Profile Management
+Users can manage their profiles
+
+<img src="https://github.com/OmarAmeer96/Recepo/assets/93061060/206d4de7-8007-46af-8f4f-8e0e91725b76" width="400">
+
