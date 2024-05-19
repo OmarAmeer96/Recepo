@@ -217,26 +217,31 @@ class _HomeViewState extends State<HomeView> {
                               child: SizedBox(
                                 height: 50,
                                 width: 50,
-                                child: SharedPrefs.getString(
-                                            key: kProfilePhotoURL) !=
-                                        null
-                                    ? ClipOval(
-                                        child: CachedNetworkImage(
-                                          fit: BoxFit.cover,
-                                          imageUrl: SharedPrefs.getString(
-                                              key: kProfilePhotoURL)!,
-                                          placeholder: (context, url) =>
-                                              const CircularProgressIndicator(),
-                                          errorWidget: (context, url, error) =>
-                                              const Icon(Icons.error),
-                                        ),
-                                      )
-                                    : const CircleAvatar(
-                                        backgroundColor: Colors.white,
-                                        backgroundImage: AssetImage(
-                                          AssetsData.profileImage,
-                                        ),
-                                      ),
+                                child:
+                                    // SharedPrefs.getString(
+                                    //             key: kProfilePhotoURL) !=
+                                    //         null
+                                    SharedPrefs.getString(
+                                                key: kProfilePhotoURL)!
+                                            .isNotEmpty
+                                        ? ClipOval(
+                                            child: CachedNetworkImage(
+                                              fit: BoxFit.cover,
+                                              imageUrl: SharedPrefs.getString(
+                                                  key: kProfilePhotoURL)!,
+                                              placeholder: (context, url) =>
+                                                  const CircularProgressIndicator(),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      const Icon(Icons.error),
+                                            ),
+                                          )
+                                        : const CircleAvatar(
+                                            backgroundColor: Colors.white,
+                                            backgroundImage: AssetImage(
+                                              AssetsData.profileImage,
+                                            ),
+                                          ),
                               ),
                             ),
                           );

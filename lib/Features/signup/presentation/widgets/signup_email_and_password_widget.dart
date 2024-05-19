@@ -67,20 +67,21 @@ class _SignupEmailAndPasswordWidgetState
             },
             prefixIcon: const Icon(Icons.person_outline),
           ),
-          // verticalSpace(18),
-          // CustomMainTextFormField(
-          //   labelText: 'Email',
-          //   labelStyle: Styles.enabledTextFieldsLabelText,
-          //   isObscureText: false,
-          //   style: Styles.focusedTextFieldsLabelText,
-          //   controller: context.read<SignupCubit>().emailController,
-          //   validator: (value) {
-          //     if (value!.isEmpty || !AppRegex.isEmailValid(value)) {
-          //       return 'Please enter your email';
-          //     }
-          //   },
-          //   prefixIcon: const Icon(Icons.email_outlined),
-          // ),
+          verticalSpace(18),
+          CustomMainTextFormField(
+            keyboardType: TextInputType.phone,
+            labelText: 'Phone Number',
+            labelStyle: Styles.enabledTextFieldsLabelText,
+            isObscureText: false,
+            style: Styles.focusedTextFieldsLabelText,
+            controller: context.read<SignupCubit>().phoneController,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Please enter your your username';
+              }
+            },
+            prefixIcon: const Icon(Icons.phone_outlined),
+          ),
           verticalSpace(18),
           CustomMainTextFormField(
             labelText: 'Password',

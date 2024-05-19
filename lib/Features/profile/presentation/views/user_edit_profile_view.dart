@@ -142,13 +142,12 @@ class _UserEditProfileViewState extends State<UserEditProfileView> {
                                                 fit: BoxFit.cover,
                                               ),
                                             )
-                                          :
-                                          // SharedPrefs.getString(
-                                          //             key: kProfilePhotoURL)!
-                                          //         .isNotEmpty
-                                          SharedPrefs.getString(
-                                                      key: kProfilePhotoURL) !=
-                                                  null
+                                          : SharedPrefs.getString(
+                                                      key: kProfilePhotoURL)!
+                                                  .isNotEmpty
+                                              // SharedPrefs.getString(
+                                              //             key: kProfilePhotoURL) !=
+                                              //         null
                                               ? ClipOval(
                                                   child: CachedNetworkImage(
                                                     fit: BoxFit.cover,

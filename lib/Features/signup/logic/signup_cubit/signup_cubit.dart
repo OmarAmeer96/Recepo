@@ -22,7 +22,7 @@ class SignupCubit extends Cubit<SignupState> {
     final response = await _signupRepo.signup(
       SignupRequestBody(
         username: usernameController.text,
-        phone: "01054790304",
+        phone: phoneController.text,
         password: passwordController.text,
         confirmPassword: confirmPasswordController.text,
         role: "USER",
