@@ -221,8 +221,9 @@ class _HomeViewState extends State<HomeView> {
                                                 key: kProfilePhotoURL) !=
                                             null ||
                                         SharedPrefs.getString(
-                                                key: kProfilePhotoURL)!
-                                            .isNotEmpty
+                                                    key: kProfilePhotoURL)
+                                                ?.isNotEmpty ==
+                                            true
                                     ? ClipOval(
                                         child: CachedNetworkImage(
                                           fit: BoxFit.cover,
